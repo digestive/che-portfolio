@@ -9,32 +9,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const successMsg = document.getElementById('contact-form-success');
 
   if (openBtn && overlay) {
-    openBtn.addEventListener('click', function() {
+    openBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       overlay.style.display = 'flex';
     });
   }
   if (closeBtn && overlay) {
     closeBtn.addEventListener('click', function() {
       overlay.style.display = 'none';
-      form.style.display = 'flex';
-      successMsg.style.display = 'none';
+      if (form) form.style.display = 'flex';
+      if (successMsg) successMsg.style.display = 'none';
     });
   }
   if (overlay) {
     overlay.addEventListener('click', function(e) {
       if (e.target === overlay) {
         overlay.style.display = 'none';
-        form.style.display = 'flex';
-        successMsg.style.display = 'none';
+        if (form) form.style.display = 'flex';
+        if (successMsg) successMsg.style.display = 'none';
       }
     });
   }
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Simulate form submission
-      form.style.display = 'none';
-      successMsg.style.display = 'block';
-    });
-  }
+  // Do NOT prevent default on form submit; let Formspree handle it
 });
