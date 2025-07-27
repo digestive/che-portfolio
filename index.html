@@ -26,10 +26,12 @@
   <section id="about">
     <h2>About</h2>
     <p>
-      As a Product Quality and Process Specialist, Che has over 11 years of experience in software quality assurance, including 7 years as a people manager and team lead. Che has successfully led quality assurance across multiple product teams, focusing on both native app and web development. He has also established and implemented test strategy and automation roadmaps, working closely with direct reports and other leaders to achieve product, organization, and company goals.
+      As a Product Quality and Process Specialist, Che has over 11 years of experience in software quality assurance, including 7 years as a people manager and team lead. Che has successfully led quality assurance across multiple product teams, focusing on both native app and 
+      web development. He has also established and implemented test strategy and automation roadmaps, working closely with direct reports and other leaders to achieve product, organization, and company goals.
     </p>
     <p>
-      Che is passionate about delivering high-quality software products that meet user needs and expectations. He has a strong background in testing processes, test execution, and quality assurance best practices. He is open to new opportunities of all types, where he can leverage his skills and expertise in quality assurance and process improvement, and contribute to the success of innovative and impactful software products.
+      Che is passionate about delivering high-quality software products that meet user needs and expectations. He has a strong background in testing processes, test execution, and quality assurance best practices. 
+      He is open to new opportunities of all types, where he can leverage his skills and expertise in quality assurance and process improvement, and contribute to the success of innovative and impactful software products.
     </p>
   </section>
 
@@ -93,24 +95,50 @@
   <section id="contact">
     <h2>Contact & Social</h2>
     <div class="contact-cards">
-      <a class="contact-card" href="mailto:your.email@example.com" target="_blank">
+      <a class="contact-card" href="#" id="open-contact-modal">
         <i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i>
         <span>Email</span>
       </a>
-      <a class="contact-card" href="https://linkedin.com/in/yourprofile" target="_blank">
+      <a class="contact-card" href="https://linkedin.com/in/che-bajandas" target="_blank">
         <i class="fa-brands fa-linkedin contact-icon" aria-hidden="true"></i>
         <span>LinkedIn</span>
       </a>
-      <a class="contact-card" href="https://github.com/yourusername" target="_blank">
+      <a class="contact-card" href="https://github.com/cbajandas" target="_blank">
         <i class="fa-brands fa-github contact-icon" aria-hidden="true"></i>
         <span>GitHub</span>
       </a>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal-overlay" class="modal-overlay" style="display:none;">
+      <div class="modal-content">
+        <button class="modal-close" id="close-contact-modal" aria-label="Close contact form">&times;</button>
+        <h3>Contact Che</h3>
+        <form id="contact-form">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" required>
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" required>
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="4" required></textarea>
+          <button type="submit" class="modal-submit">Send</button>
+          <input type="hidden" name="_subject" value="New message from portfolio contact form">
+          <input type="hidden" name="_next" value="#">
+        </form>
+        <script>
+          // Set Formspree endpoint
+          document.getElementById('contact-form').setAttribute('action', 'https://formspree.io/f/xjkorvya');
+          document.getElementById('contact-form').setAttribute('method', 'POST');
+        </script>
+        <div id="contact-form-success" style="display:none; color:#4a4e69; margin-top:1rem;">Thank you! Your message has been sent.</div>
+      </div>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Che — All rights reserved.</p>
   </footer>
+<script src="assets/js/contact-modal.js"></script>
 </body>
 <script src="assets/js/carousel.js"></script>
 </html>
