@@ -123,7 +123,7 @@
           <textarea id="contact-message" name="message" rows="4" required></textarea>
           <button type="submit" class="modal-submit">Send</button>
           <input type="hidden" name="_subject" value="New message from portfolio contact form">
-          <input type="hidden" name="_next" value="#">
+          <input type="hidden" name="_next" value="/">
         </form>
         <script>
           // Set Formspree endpoint
@@ -139,6 +139,13 @@
     <p>&copy; 2025 Che — All rights reserved.</p>
   </footer>
 <script src="assets/js/contact-modal.js"></script>
+<script>
+  // Auto-close modal after Formspree redirect
+  if (window.location.pathname === '/' && window.location.hash === '#contact') {
+    var overlay = document.getElementById('contact-modal-overlay');
+    if (overlay) overlay.style.display = 'none';
+  }
+</script>
 </body>
 <script src="assets/js/carousel.js"></script>
 </html>
