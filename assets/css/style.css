@@ -1,0 +1,276 @@
+/* Carousel styles for endorsements */
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.carousel-quote {
+  display: none;
+  background: #f2e9e4;
+  border-left: 4px solid #4a4e69;
+  padding: 2rem 1rem 1rem 1rem;
+  margin: 0;
+  border-radius: 8px;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #22223b;
+  height: 300px; /* Increased height to fit longest quote */
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.carousel-quote.active {
+  display: block;
+}
+.carousel-author {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #4a4e69;
+  font-style: normal;
+}
+/* Carousel chevron buttons */
+/* Carousel dot navigation */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d1d1;
+  cursor: pointer;
+  transition: background 5s;
+}
+.carousel-dot.active {
+  background: #4a4e69;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f7f8fa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.75;
+}
+
+header {
+  background: linear-gradient(90deg, #22223b 0%, #4a4e69 100%);
+  color: #fff;
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+header .site-title {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Modern horizontal navigation */
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-nav li {
+  display: inline-block;
+}
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+.main-nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #f2e9e4;
+  transition: width 0.2s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+.main-nav a:hover {
+  color: #f2e9e4;
+}
+.main-nav a:hover::after {
+  width: 100%;
+}
+}
+
+main, section {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 2rem;
+}
+
+h2 {
+  color: #4a4e69;
+  margin-top: 0;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.7rem;
+}
+
+section#resume ul li a {
+  color: #4a4e69;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+section#resume ul li a:hover {
+  color: #22223b;
+}
+
+blockquote {
+  background: #f2e9e4;
+  border-left: 4px solid #4a4e69;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  color: #888;
+  padding: 2rem 0 1rem 0;
+  font-size: 0.95rem;
+  border-top: 1px solid #ddd;
+}
+
+@media (max-width: 800px) {
+  main, section {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+  nav {
+    gap: 1rem;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+}
+/* Typography & Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.75;
+}
+
+header, footer {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #222;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 12px;
+  color: #0078d4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #005a9e;
+}
+
+/* Section Styling */
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+h2 {
+  color: #005a9e;
+  margin-top: 0;
+}
+
+/* Lists and Quotes */
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.8rem;
+}
+
+blockquote {
+  background-color: #f0f4f8;
+  border-left: 4px solid #0078d4;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+}
+
+blockquote footer {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Contact Links */
+section#contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+section#contact li {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  word-break: break-word;
+}
+
+/* Footer */
+footer {
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
