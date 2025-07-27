@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Che Bajandas | Portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
@@ -22,18 +24,35 @@
   </header>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p><!-- Your bio/intro copy goes here --></p>
+    <h2>About</h2>
+    <p>
+      As a Product Quality and Process Specialist, Che has over 11 years of experience in software quality assurance, including 7 years as a people manager and team lead. Che has successfully led quality assurance across multiple product teams, focusing on both native app and web development. He has also established and implemented test strategy and automation roadmaps, working closely with direct reports and other leaders to achieve product, organization, and company goals.
+    </p>
+    <p>
+      Che is passionate about delivering high-quality software products that meet user needs and expectations. He has a strong background in testing processes, test execution, and quality assurance best practices. He is open to new opportunities of all types, where he can leverage his skills and expertise in quality assurance and process improvement, and contribute to the success of innovative and impactful software products.
+    </p>
   </section>
 
   <section id="resume">
     <h2>Resume</h2>
-    <ul>
-      <li><a href="assets/resumes/Che Bajandas Resume IC.pdf" target="_blank">Quality Assurance</a></li>
-      <li><a href="assets/resumes/Che Bajandas Resume M.pdf" target="_blank">Team Management</a></li>
-      <li><a href="assets/resumes/Che Bajandas Resume PJM.pdf" target="_blank">Project Management</a></li>
-      <li><a href="assets/resumes/Che Bajandas Resume PM.pdf" target="_blank">Product Management</a></li>
-    </ul>
+    <div class="resume-cards">
+      <a class="resume-card" href="assets/resumes/Che Bajandas Resume IC.pdf" target="_blank">
+        <i class="fa-solid fa-microscope resume-icon" aria-hidden="true"></i>
+        <span>Quality Assurance</span>
+      </a>
+      <a class="resume-card" href="assets/resumes/Che Bajandas Resume M.pdf" target="_blank">
+        <i class="fa-solid fa-users resume-icon" aria-hidden="true"></i>
+        <span>Team Management</span>
+      </a>
+      <a class="resume-card" href="assets/resumes/Che Bajandas Resume PJM.pdf" target="_blank">
+        <i class="fa-solid fa-diagram-project resume-icon" aria-hidden="true"></i>
+        <span>Project Management</span>
+      </a>
+      <a class="resume-card" href="assets/resumes/Che Bajandas Resume PM.pdf" target="_blank">
+        <i class="fa-solid fa-lightbulb resume-icon" aria-hidden="true"></i>
+        <span>Product Management</span>
+      </a>
+    </div>
   </section>
 
   <section id="samples">
@@ -54,22 +73,39 @@
 
   <section id="endorsements">
     <h2>Endorsements</h2>
-    <div class="carousel" id="endorsement-carousel">
-      <div class="carousel-quote active">“Che is such a multi-talented and deeply skilled manager that it’s hard to even know where to begin to describe him. He managed QA for my team and I’ve never seen it done better: small and tight releases shipped regularly, close monitoring of production, and detailed quality metrics read out to the whole team every week... The continual improvement that he drove in our whole group made us better and better and better over time.”<br><span class="carousel-author">— <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank">Andy Hilal, Director of Product</a></span></div>
-      <div class="carousel-quote">“For the four years we worked together on Battle Pirates, Che was a consistently diligent and dependable QA, whose deep knowledge of the systems our game was built upon informed his team members across all disciplines of the complexity and risk associated with what we planned and what we shipped.”<br><span class="carousel-author">— <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank">Jeremy Sachs, Senior Game Engineer</a></span></div>
-      <div class="carousel-quote">“What can I say about Che. He is one of the best managers I have ever worked with... He has unparalleled attention to details and has always been someone with the highest level of integrity and fairness. No matter the complexity you can always expect him to deliver.”<br><span class="carousel-author">— <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank">Jinesh Doshi, Principle QA Automation Engineer</a></span></div>
-      <div class="carousel-quote">“When I think of Che, the first word that comes to mind is dedication. Whether it was his team, his work, or the product, Che was always dedicated to making sure everything was a success. No matter where he goes, you can expect him to deliver. ”<br><span class="carousel-author">— <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank">Joshua Groezinger, Senior SDET</a></span></div>
-      <div class="carousel-dots" id="carousel-dots"></div>
+    <div class="carousel-wrapper">
+      <button class="carousel-btn" id="prev-btn" aria-label="Previous endorsement">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="carousel" id="endorsement-carousel">
+        <div class="carousel-quote active">“Che is such a multi-talented and deeply skilled manager that it’s hard to even know where to begin to describe him. He managed QA for my team and I’ve never seen it done better: small and tight releases shipped regularly, close monitoring of production, and detailed quality metrics read out to the whole team every week... The continual improvement that he drove in our whole group made us better and better and better over time.”<br><span class="carousel-author">— Andy Hilal, Director of Product <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-quote">“For the four years we worked together on Battle Pirates, Che was a consistently diligent and dependable QA, whose deep knowledge of the systems our game was built upon informed his team members across all disciplines of the complexity and risk associated with what we planned and what we shipped.”<br><span class="carousel-author">— Jeremy Sachs, Senior Game Engineer <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-quote">“What can I say about Che. He is one of the best managers I have ever worked with... He has unparalleled attention to details and has always been someone with the highest level of integrity and fairness. No matter the complexity you can always expect him to deliver.”<br><span class="carousel-author">— Jinesh Doshi, Principle QA Automation Engineer <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-quote">“When I think of Che, the first word that comes to mind is dedication. Whether it was his team, his work, or the product, Che was always dedicated to making sure everything was a success. No matter where he goes, you can expect him to deliver. ”<br><span class="carousel-author">— Joshua Groezinger, Senior SDET <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+      <button class="carousel-btn" id="next-btn" aria-label="Next endorsement">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact & Social</h2>
-    <ul>
-      <li><a href="mailto:your.email@example.com">Email</a></li>
-      <li><a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
-      <li><a href="https://github.com/yourusername">GitHub</a></li>
-    </ul>
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:your.email@example.com" target="_blank">
+        <i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i>
+        <span>Email</span>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/yourprofile" target="_blank">
+        <i class="fa-brands fa-linkedin contact-icon" aria-hidden="true"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a class="contact-card" href="https://github.com/yourusername" target="_blank">
+        <i class="fa-brands fa-github contact-icon" aria-hidden="true"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
   </section>
 
   <footer>

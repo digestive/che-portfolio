@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   const quotes = document.querySelectorAll('.carousel-quote');
   const dotsContainer = document.getElementById('carousel-dots');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
   let current = 0;
   let intervalId;
 
@@ -32,12 +34,27 @@ document.addEventListener('DOMContentLoaded', function() {
     showQuote(current);
   }
 
+  function prevQuote() {
+    current = (current - 1 + quotes.length) % quotes.length;
+    showQuote(current);
+  }
+
   function resetInterval() {
     clearInterval(intervalId);
-    intervalId = setInterval(nextQuote, 5000);
+    intervalId = setInterval(nextQuote, 8000);
   }
+
+  prevBtn.addEventListener('click', function() {
+    prevQuote();
+    resetInterval();
+  });
+
+  nextBtn.addEventListener('click', function() {
+    nextQuote();
+    resetInterval();
+  });
 
   createDots();
   showQuote(current);
-  intervalId = setInterval(nextQuote, 5000);
+  intervalId = setInterval(nextQuote, 8000);
 });

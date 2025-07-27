@@ -1,3 +1,106 @@
+.resume-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.resume-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f7f8fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.5rem 1.2rem;
+  text-decoration: none;
+  color: #22223b;
+  /* width removed to allow grid to control card width */
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.resume-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transform: translateY(-4px) scale(1.04);
+  color: #4a4e69;
+}
+.resume-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.7rem;
+  color: #4a4e69;
+  transition: color 0.2s;
+}
+.resume-card:hover .resume-icon {
+  color: #22223b;
+}
+
+/* Contact Cards - mimic resume card style */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.contact-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #222;
+  transition: box-shadow 0.2s;
+}
+.contact-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+}
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0077b6;
+}
+
+@media (max-width: 700px) {
+  .resume-cards {
+    grid-template-columns: 1fr;
+  }
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .contact-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+}
+/* duplicate .resume-card block removed */
+/* Carousel wrapper for chevrons */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.carousel-btn {
+  background: #4a4e69;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+.carousel-btn:hover {
+  background: #22223b;
+}
 /* Carousel styles for endorsements */
 .carousel {
   position: relative;
@@ -43,7 +146,7 @@
   border-radius: 50%;
   background: #d1d1d1;
   cursor: pointer;
-  transition: background 5s;
+  transition: background 0.2s;
 }
 .carousel-dot.active {
   background: #4a4e69;
@@ -169,6 +272,40 @@ footer {
     max-width: 98vw;
     padding: 1rem;
   }
+
+/* Contact Cards - mimic resume card style */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.contact-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #222;
+  transition: box-shadow 0.2s;
+}
+.contact-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+}
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0077b6;
+}
+
+@media (max-width: 700px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}
   nav {
     gap: 1rem;
   }
