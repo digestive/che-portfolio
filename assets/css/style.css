@@ -1,3 +1,92 @@
+/* Automation/Code Card Style */
+.automation-card {
+  background: #f7f7fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(74, 78, 105, 0.08);
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+  font-size: 1rem;
+  color: #22223b;
+  margin-bottom: 1.5rem;
+}
+.automation-card h3 {
+  margin-top: 0;
+  color: #4a4e69;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+}
+.automation-card ul {
+  list-style-type: disc;
+  margin-left: 1.2em;
+  margin-bottom: 0.7em;
+}
+.automation-card li {
+  margin-bottom: 0.2em;
+}
+.automation-card a {
+  color: #22223b;
+  text-decoration: underline;
+}
+.automation-card b {
+  color: #22223b;
+  font-weight: bold;
+}
+.automation-card i {
+  color: #4a4e69;
+}
+.automation-code-block {
+  background: #23272e;
+  color: #f7f7fa;
+  border-radius: 8px;
+  padding: 1em;
+  font-size: 0.98em;
+  overflow-x: auto;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+.automation-card-body {
+  margin-top: 0.5em;
+}
+section, main, [id] {
+  scroll-margin-top: 130px;
+}
+/* Work Samples Tab Navigation */
+.work-samples-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+.work-samples-tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #4a4e69;
+  font-size: 1.05em;
+  font-weight: 600;
+  padding: 0.7em 1.5em 0.5em 1.5em;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  outline: none;
+}
+.work-samples-tab.active {
+  border-bottom: 3px solid #4a4e69;
+  color: #22223b;
+  background: #f7f7fa;
+}
+.work-samples-tab:focus {
+  outline: 2px solid #0078d4;
+}
+.work-samples-tab-content {
+  margin-top: 0.5rem;
+}
+.work-samples-panel {
+  display: none;
+}
+.work-samples-panel.active {
+  display: block;
+}
 .ticket-card img {
   max-width: 100%;
   height: auto;

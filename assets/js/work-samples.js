@@ -50,9 +50,18 @@ async function loadWorkSamples(containerId, ticketList) {
         if (expanded) {
           el.style.display = '';
           el.classList.remove('ticket-collapsed');
+          // Remove fade overlay if present
+          const fade = el.querySelector('.ticket-fade');
+          if (fade) fade.remove();
         } else {
           el.style.display = 'none';
           el.classList.add('ticket-collapsed');
+          // Add fade overlay if missing
+          if (!el.querySelector('.ticket-fade')) {
+            const fade = document.createElement('div');
+            fade.className = 'ticket-fade';
+            el.appendChild(fade);
+          }
         }
       }
       showMoreLink.textContent = expanded ? 'Show Less' : 'Show More';
@@ -60,6 +69,13 @@ async function loadWorkSamples(containerId, ticketList) {
       if (!expanded && container.children.length > 1) {
         container.children[1].style.display = '';
         container.children[1].classList.add('ticket-collapsed');
+        // Add fade overlay if missing
+        const el = container.children[1];
+        if (!el.querySelector('.ticket-fade')) {
+          const fade = document.createElement('div');
+          fade.className = 'ticket-fade';
+          el.appendChild(fade);
+        }
       }
       showMoreLink.style.display = 'block';
     };
@@ -110,4 +126,20 @@ document.addEventListener('DOMContentLoaded', () => {
   loadBugTickets();
   loadPRDs();
   loadProjectDocs();
+
+  // Tab navigation for Work Samples
+  const tabButtons = document.querySelectorAll('.work-samples-tab');
+  const tabPanels = document.querySelectorAll('.work-samples-panel');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all tabs and panels
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+      // Add active to clicked tab and corresponding panel
+      btn.classList.add('active');
+      const tab = btn.getAttribute('data-tab');
+      const panel = document.getElementById(tab + '-tab');
+      if (panel) panel.classList.add('active');
+    });
+  });
 });

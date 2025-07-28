@@ -8,9 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <!-- Portfolio content here -->
-</body>
-</html>
   <header>
     <h1 class="site-title">Che Bajandas</h1>
     <nav class="main-nav">
@@ -37,6 +34,25 @@
     </p>
   </section>
 
+  <section id="endorsements">
+    <h2>Endorsements</h2>
+    <div class="carousel-wrapper">
+      <button class="carousel-btn" id="prev-btn" aria-label="Previous endorsement">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="carousel" id="endorsement-carousel">
+        <div class="carousel-quote active">“Che is such a multi-talented and deeply skilled manager that it’s hard to even know where to begin to describe him. He managed QA for my team and I’ve never seen it done better: small and tight releases shipped regularly, close monitoring of production, and detailed quality metrics read out to the whole team every week... The continual improvement that he drove in our whole group made us better and better and better over time.”<br><span class="carousel-author">— Andy Hilal, Director of Product <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-quote">“For the four years we worked together on Battle Pirates, Che was a consistently diligent and dependable QA, whose deep knowledge of the systems our game was built upon informed his team members across all disciplines of the complexity and risk associated with what we planned and what we shipped.”<br><span class="carousel-author">— Jeremy Sachs, Senior Game Engineer <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-quote">“What can I say about Che. He is one of the best managers I have ever worked with... He has unparalleled attention to details and has always been someone with the highest level of integrity and fairness. No matter the complexity you can always expect him to deliver.”<br><span class="carousel-author">— Jinesh Doshi, Principle QA Automation Engineer <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-quote">“When I think of Che, the first word that comes to mind is dedication. Whether it was his team, his work, or the product, Che was always dedicated to making sure everything was a success. No matter where he goes, you can expect him to deliver. ”<br><span class="carousel-author">— Joshua Groezinger, Senior SDET <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+      <button class="carousel-btn" id="next-btn" aria-label="Next endorsement">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
   <section id="resume">
     <h2>Resume</h2>
     <div class="resume-cards">
@@ -61,43 +77,82 @@
 
   <section id="samples">
     <h2>Work Samples</h2>
-    <h3>Ticket Verification Notes</h3>
-    <!-- Description & link -->
-    <h3>Bug Tickets</h3>
-    <div id="bug-tickets-container"></div>
-    <!-- Description & link -->
-    <h3>PRDs</h3>
-    <div id="prd-container"></div>
-    <!-- Description & link -->
-    <h3>Project Docs</h3>
-    <div id="project-docs-container"></div>
-    <!-- Description & link -->
-    <h3>Automation/Code</h3>
-    <!-- Description & link or GitHub embed -->
+    <div class="work-samples-tabs">
+      <button class="work-samples-tab active" data-tab="bug-tickets">Bug Tickets</button>
+      <button class="work-samples-tab" data-tab="prds">PRDs</button>
+      <button class="work-samples-tab" data-tab="project-docs">Project Docs</button>
+      <button class="work-samples-tab" data-tab="automation">Automation/Code</button>
+    </div>
+    <div class="work-samples-tab-content">
+      <div id="bug-tickets-tab" class="work-samples-panel active">
+        <p>
+            A sampling of detailed bug tickets.
+        </p>
+        <div id="bug-tickets-container"></div>
+      </div>
+      <div id="prds-tab" class="work-samples-panel">
+        <p>
+            Examples of Product Requirement Documents (PRDs).
+        </p>
+        <div id="prd-container"></div>
+      </div>
+      <div id="project-docs-tab" class="work-samples-panel">
+        <p>
+            Project documentation, including project ticket details.
+        </p>
+        <div id="project-docs-container"></div>
+      </div>
+      <div id="automation-tab" class="work-samples-panel">
+        <div class="automation-card">
+          <h3>decent-ui-automation</h3>
+          <div class="automation-card-body">
+            <p>
+              <strong>decent-ui-automation</strong> a UI automation framework built with <b>TypeScript</b> and <b>Selenium WebDriver</b>. It was built from the ground up by Che Bajandas to provide automated regression testing as part of the Decent app project pipeline.
+            </p>
+            <ul>
+              <li>TypeScript-first, modern project structure</li>
+              <li>Page Object Model (POM) for maintainable tests</li>
+              <li>Reusable test utilities and helpers</li>
+              <li>Easy configuration and environment management</li>
+            </ul>
+            <p>
+              <a href="https://github.com/cbajandas/decent-ui-automation" target="_blank" rel="noopener" class="github-link">
+                <i class="fa-brands fa-github"></i> View on GitHub
+              </a>
+            </p>
+            <pre class="automation-code-block"><code>// Sample regression test file
+
+import { getTestDao } from '../../../config/test-daos';
+import { BaseSeleniumTest } from '../../base-selenium-test';
+import { By } from 'selenium-webdriver';
+import { pages } from '../../../config/pages';
+import { getBaseUrl, appendFlagsToUrl } from '../../test-helpers';
+
+
+// Parse governance type from CLI args
+const governanceArg = process.argv.find(arg => arg.startsWith('--governance='));
+const governanceType = governanceArg ? governanceArg.split('=')[1].toLowerCase() : 'erc20';
+
+const test = new BaseSeleniumTest('dao-homepage', 'content-loads');
+BaseSeleniumTest.run(async (test) => {
+  // Load the DAO homepage
+  await test.start();
+  const daoHomePath = `${pages['dao-homepage']}?dao=${getTestDao(governanceType).value}`;
+  await test.driver!.get(appendFlagsToUrl(getBaseUrl() + daoHomePath));
+  // Confirm the settings button is present
+  await test.waitForElement(By.css('[aria-label="Manage DAO"]'));
+  console.log('DAO homepage loaded and settings button found.');
+}, test);
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <p><!-- Summary or case studies here --></p>
-  </section>
-
-  <section id="endorsements">
-    <h2>Endorsements</h2>
-    <div class="carousel-wrapper">
-      <button class="carousel-btn" id="prev-btn" aria-label="Previous endorsement">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-      <div class="carousel" id="endorsement-carousel">
-        <div class="carousel-quote active">“Che is such a multi-talented and deeply skilled manager that it’s hard to even know where to begin to describe him. He managed QA for my team and I’ve never seen it done better: small and tight releases shipped regularly, close monitoring of production, and detailed quality metrics read out to the whole team every week... The continual improvement that he drove in our whole group made us better and better and better over time.”<br><span class="carousel-author">— Andy Hilal, Director of Product <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
-        <div class="carousel-quote">“For the four years we worked together on Battle Pirates, Che was a consistently diligent and dependable QA, whose deep knowledge of the systems our game was built upon informed his team members across all disciplines of the complexity and risk associated with what we planned and what we shipped.”<br><span class="carousel-author">— Jeremy Sachs, Senior Game Engineer <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
-        <div class="carousel-quote">“What can I say about Che. He is one of the best managers I have ever worked with... He has unparalleled attention to details and has always been someone with the highest level of integrity and fairness. No matter the complexity you can always expect him to deliver.”<br><span class="carousel-author">— Jinesh Doshi, Principle QA Automation Engineer <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
-        <div class="carousel-quote">“When I think of Che, the first word that comes to mind is dedication. Whether it was his team, his work, or the product, Che was always dedicated to making sure everything was a success. No matter where he goes, you can expect him to deliver. ”<br><span class="carousel-author">— Joshua Groezinger, Senior SDET <a href="https://www.linkedin.com/in/che-bajandas/details/recommendations/" target="_blank" aria-label="View LinkedIn recommendation"><i class="fa-solid fa-link"></i></a></span></div>
-        <div class="carousel-dots" id="carousel-dots"></div>
-      </div>
-      <button class="carousel-btn" id="next-btn" aria-label="Next endorsement">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-    </div>
   </section>
 
   <section id="contact">
@@ -146,17 +201,17 @@
   <footer>
     <p>&copy; 2025 Che — All rights reserved.</p>
   </footer>
-<script src="assets/js/contact-modal.js"></script>
-<script src="assets/js/js-yaml.min.js"></script>
-<script src="assets/js/marked.min.js"></script>
-<script src="assets/js/work-samples.js" defer></script> <!-- Loads bug tickets dynamically -->
-<script>
-  // Auto-close modal after Formspree redirect
-  if (window.location.pathname === '/' && window.location.hash === '#contact') {
-    var overlay = document.getElementById('contact-modal-overlay');
-    if (overlay) overlay.style.display = 'none';
-  }
-</script>
+  <script src="assets/js/contact-modal.js"></script>
+  <script src="assets/js/js-yaml.min.js"></script>
+  <script src="assets/js/marked.min.js"></script>
+  <script src="assets/js/work-samples.js" defer></script> <!-- Loads bug tickets dynamically -->
+  <script>
+    // Auto-close modal after Formspree redirect
+    if (window.location.pathname === '/' && window.location.hash === '#contact') {
+      var overlay = document.getElementById('contact-modal-overlay');
+      if (overlay) overlay.style.display = 'none';
+    }
+  </script>
+  <script src="assets/js/carousel.js"></script>
 </body>
-<script src="assets/js/carousel.js"></script>
 </html>
