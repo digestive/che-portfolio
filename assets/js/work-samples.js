@@ -111,14 +111,16 @@ async function loadBugTickets() {
 // Load PRDs (add your markdown files to the array below)
 async function loadPRDs() {
   await loadWorkSamples('prd-container', [
-    'assets/documents/prd-example-1.md'
+    'assets/documents/prd-example-1.md',
+    'assets/documents/prd-example-2.md'
   ]);
 }
 
 // Load project docs (add your markdown files to the array below)
 async function loadProjectDocs() {
   await loadWorkSamples('project-docs-container', [
-    'assets/tickets/project-ticket-1.md'
+    'assets/tickets/project-ticket-1.md',
+    'assets/tickets/project-ticket-2.md'
   ]);
 }
 

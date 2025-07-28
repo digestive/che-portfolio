@@ -9,7 +9,7 @@
     -   Basic token information that is currently displayed for ERC-20 token DAOs
     -   Transferable/non-transferable status
 -   Moved out of scope
-    -   [Token Management UI QoL](https://www.notion.so/Token-Management-UI-QoL-2062ee9c5bc280618c56cc62970ed224?pvs=21)
+    -   Token Management UI QoL
 -   Transitioning a multi-sig DAO to a token DAO should default to use the already generated ERC-20 token
 
 ## Use case
@@ -83,7 +83,7 @@ The ‘Token’ tab will initially be empty except for explanatory copy and a CT
 
 ### Add token deployment UX
 
-> 💡Covers multi-sig DAOs *without* an ERC-20 token deployed
+> 💡 Covers multi-sig DAOs *without* an ERC-20 token deployed
 
 Considering our time and resource constraints, for MVP we’re going to aim to mostly reuse the ERC-20 token DAO creation user flow.
 
@@ -108,11 +108,7 @@ Quorum is not a concern initially for a multi-sig DAO, but there’s more that c
 
 ## Part 3: Incorporate token management UX for multi-sig DAOs
 
-<aside> 💡
-
-Covers multi-sig DAOs _with_ an **ERC-20 token deployed
-
-</aside>
+> 💡 Covers multi-sig DAOs _with_ an **ERC-20 token deployed
 
 Here we’ll be able to reuse the basic token information section already used in the Governance tab of the Settings modal for an ERC-20 token DAO, but we’ll also need to add new options for managing the token.
 
@@ -129,11 +125,7 @@ _For now, let’s leave things alone for ERC-721 token voting DAOs and not even 
 
 ### (Stretch) Add token management options to the “Token” tab
 
-<aside> 💡
-
-This entire section can be deferred as needed. All of the functionality described here can be handled by custom proposals on a case by case basis.
-
-</aside>
+> 💡 This entire section can be deferred as needed. All of the functionality described here can be handled by custom proposals on a case by case basis.
 
 In addition to the basic, read-only information about the token we’ll display in the top section of the tab, we should also have form fields in a below “Management” section. As is the case with other parts of the Settings modal, these will only be editable when connected to a wallet with proposal power.
 
