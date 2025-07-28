@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Che Bajandas | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Che Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <!-- Portfolio content here -->
+</body>
+</html>
   <header>
     <h1 class="site-title">Che Bajandas</h1>
     <nav class="main-nav">
@@ -59,13 +61,19 @@
 
   <section id="samples">
     <h2>Work Samples</h2>
-    <ul>
-      <li><strong>Ticket Verification Notes:</strong> <!-- Description & link --></li>
-      <li><strong>Well-Written Tickets:</strong> <!-- Description & link --></li>
-      <li><strong>PRDs:</strong> <!-- Description & link --></li>
-      <li><strong>Project Docs:</strong> <!-- Description & link --></li>
-      <li><strong>Automation/Code:</strong> <!-- Description & link or GitHub embed --></li>
-    </ul>
+    <h3>Ticket Verification Notes</h3>
+    <!-- Description & link -->
+    <h3>Bug Tickets</h3>
+    <div id="bug-tickets-container"></div>
+    <!-- Description & link -->
+    <h3>PRDs</h3>
+    <div id="prd-container"></div>
+    <!-- Description & link -->
+    <h3>Project Docs</h3>
+    <div id="project-docs-container"></div>
+    <!-- Description & link -->
+    <h3>Automation/Code</h3>
+    <!-- Description & link or GitHub embed -->
   </section>
 
   <section id="projects">
@@ -139,6 +147,9 @@
     <p>&copy; 2025 Che — All rights reserved.</p>
   </footer>
 <script src="assets/js/contact-modal.js"></script>
+<script src="assets/js/js-yaml.min.js"></script>
+<script src="assets/js/marked.min.js"></script>
+<script src="assets/js/work-samples.js" defer></script> <!-- Loads bug tickets dynamically -->
 <script>
   // Auto-close modal after Formspree redirect
   if (window.location.pathname === '/' && window.location.hash === '#contact') {

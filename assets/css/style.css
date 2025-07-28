@@ -1,3 +1,138 @@
+.ticket-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.75em 0 0.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(74,78,105,0.08);
+}
+/* Show More/Less Button - clean, blue, no border/background, pointer cursor, block centered */
+.show-more-link {
+  color: #0078d4; /* Use the main blue from elsewhere on the page */
+  font-weight: 600;
+  font-size: 1.05em;
+  cursor: pointer;
+  display: block;
+  margin: 1.2em auto 0;
+  text-align: center;
+  user-select: text;
+  border: none;
+  background: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0.3em 1em;
+  border-radius: 8px;
+  transition: color 0.2s;
+}
+/* Show More/Less Button - clean, blue, no border/background, pointer cursor */
+.show-more-link {
+  color: #0078d4; /* Use the main blue from elsewhere on the page */
+  font-weight: 600;
+  font-size: 1.05em;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 0.5rem;
+  user-select: text;
+  border: none;
+  background: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0.3em 1em;
+  border-radius: 8px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.show-more-link:hover, .show-more-link:focus {
+  color: #005a9e;
+  outline: none;
+}
+.ticket-card h2 {
+  margin-top: 0;
+  color: #4a4e69;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+}
+.ticket-card h3 {
+  margin-bottom: 0.4em;
+}
+.ticket-card p, .ticket-card br {
+  margin: 0.2em 0 0.4em 0;
+}
+.ticket-card li {
+  margin-left: 1.2em;
+  margin-bottom: 0.2em;
+}
+.ticket-card a {
+  color: #22223b;
+  text-decoration: underline;
+}
+.ticket-card b {
+  color: #22223b;
+  font-weight: bold;
+}
+.ticket-card i {
+  color: #4a4e69;
+}
+
+/* Work Sample Ticket Cards */
+.work-sample-tickets {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+.ticket-card {
+  background: #f7f7fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(74, 78, 105, 0.08);
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+  font-size: 1rem;
+  color: #22223b;
+}
+.ticket-card h2 {
+  margin-top: 0;
+  color: #4a4e69;
+  font-size: 1.2rem;
+}
+.ticket-card li {
+  margin-left: 1.2em;
+}
+.ticket-card ol {
+  list-style-type: decimal;
+}
+.ticket-card ul {
+  list-style-type: disc;
+}
+.ticket-card a {
+  color: #22223b;
+  text-decoration: underline;
+}
+.ticket-card b {
+  color: #22223b;
+  font-weight: bold;
+}
+.ticket-card i {
+  color: #4a4e69;
+}
+.show-more-btn {
+  background: #4a4e69;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+  transition: background 0.2s;
+}
+.show-more-btn:hover {
+  background: #22223b;
+}
 .resume-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -65,7 +200,7 @@
 .modal-overlay {
   position: fixed;
   top: 0;
-  left: 0;
+    pointer-events: auto;
   width: 100vw;
   height: 100vh;
   background: rgba(34, 34, 59, 0.7);
@@ -81,6 +216,7 @@
   padding: 2rem 2rem 1.5rem 2rem;
   max-width: 400px;
   width: 100%;
+    pointer-events: auto;
   position: relative;
   text-align: left;
 }
@@ -244,6 +380,9 @@ header {
   padding: 2rem 0 1rem 0;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 header .site-title {
@@ -307,13 +446,7 @@ h2 {
   margin-top: 0;
 }
 
-ul {
-  padding-left: 1.2rem;
-}
 
-li {
-  margin-bottom: 0.7rem;
-}
 
 section#resume ul li a {
   color: #4a4e69;
@@ -445,6 +578,8 @@ h2 {
 }
 
 /* Lists and Quotes */
+
+
 ul {
   padding-left: 1.5rem;
 }
@@ -473,16 +608,28 @@ section#contact ul {
 }
 
 section#contact li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem !important;
 }
 
-a {
-  word-break: break-word;
-}
 
 /* Footer */
 footer {
   font-size: 0.85rem;
   color: #666;
   border-top: 1px solid #ddd;
+}
+
+.ticket-collapsed {
+  max-height: 7em;
+  overflow: hidden;
+  position: relative;
+  opacity: 0.7;
+}
+.ticket-fade {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2.5em;
+  background: linear-gradient(to bottom, rgba(247,247,250,0), #f7f7fa 90%);
+  border-radius: 0 0 12px 12px;
+  pointer-events: none;
 }
