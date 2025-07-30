@@ -1,3 +1,9 @@
+/* Even spacing for work samples tab buttons */
+.work-samples-tabs-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
 /* Desktop navigation styles */
 .main-nav ul.nav-links {
   display: flex;
@@ -48,7 +54,6 @@
   margin-right: 0;
   z-index: 1001;
 }
-
 
 @media (max-width: 800px) {
   .nav-hamburger {
@@ -182,7 +187,6 @@
 section, main, [id] {
   scroll-margin-top: 130px;
 }
-/* Work Samples Tab Navigation - 2x2 grid */
 /* Work Samples Tab Navigation - 2x2 grid */
 .work-samples-tabs-grid {
   display: flex;
@@ -319,7 +323,6 @@ section, main, [id] {
   flex-direction: column;
   gap: 1.5rem;
 }
-
 
 .ticket-card {
   background: #f7f7fa;
@@ -550,7 +553,6 @@ section, main, [id] {
     padding: 1.5rem 1rem;
   }
 }
-/* duplicate .resume-card block removed */
 /* Carousel wrapper for chevrons */
 .carousel-wrapper {
   display: flex;
@@ -656,9 +658,6 @@ header .site-title {
   letter-spacing: 1px;
 }
 
-/* Modern horizontal navigation */
-/* Removed duplicate navigation styles. Navigation styling is handled above for .main-nav ul.nav-links and .nav-hamburger. */
-
 main, section {
   max-width: 700px;
   margin: 2rem auto;
@@ -672,8 +671,6 @@ h2 {
   color: #4a4e69;
   margin-top: 0;
 }
-
-
 
 section#resume ul li a {
   color: #4a4e69;
@@ -805,7 +802,6 @@ h2 {
 
 /* Lists and Quotes */
 
-
 ul {
   padding-left: 1.5rem;
 }
@@ -837,7 +833,6 @@ section#contact li {
   margin-bottom: 0.5rem !important;
 }
 
-
 /* Footer */
 footer {
   font-size: 0.85rem;
@@ -859,13 +854,21 @@ footer {
   border-radius: 0 0 12px 12px;
   pointer-events: none;
 }
-/* Hide carousel chevrons on mobile */
-@media (max-width: 700px) {
+/* Hide carousel chevrons on mobile and unify with nav tabs breakpoint */
+@media (max-width: 800px) {
   .carousel-btn {
     display: none !important;
   }
   .carousel-wrapper {
     gap: 0;
+  }
+}
+@media (max-width: 700px) {
+  .carousel-quote {
+    height: 430px !important;
+    min-height: 320px;
+    max-height: 430px;
+    overflow-y: auto;
   }
 }
 
