@@ -196,6 +196,13 @@ section, main, [id] {
   width: 100%;
 }
 
+/* Force long strings to wrap in all table cells and block elements */
+td, th, p, li, span, div {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
 @media (max-width: 700px) {
 /* Mobile font size and font family for site title */
 .site-title {
