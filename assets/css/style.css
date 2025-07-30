@@ -1,25 +1,84 @@
-/* Automation/Code Card Style */
-.automation-card {
-  background: #f7f7fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(74, 78, 105, 0.08);
-  padding: 1.5rem;
-  border: 1px solid #e0e0e0;
-  transition: box-shadow 0.2s;
-  font-size: 1rem;
-  color: #22223b;
-  margin-bottom: 1.5rem;
+/* Desktop navigation styles */
+.main-nav ul.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.automation-card h3 {
-  margin-top: 0;
-  color: #4a4e69;
-  font-size: 1.2rem;
-  margin-bottom: 0.5em;
+.main-nav li {
+  display: inline-block;
 }
-.automation-card ul {
-  list-style-type: disc;
-  margin-left: 1.2em;
-  margin-bottom: 0.7em;
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+.main-nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #f2e9e4;
+  transition: width 0.2s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+.main-nav a:hover {
+  color: #f2e9e4;
+}
+.main-nav a:hover::after {
+  width: 100%;
+}
+/* Hamburger menu hidden by default, shown only on mobile */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 1.2rem;
+  margin-right: 0;
+  z-index: 1001;
+}
+
+
+@media (max-width: 700px) {
+  .nav-hamburger {
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    color: #fff;
+  }
+  .main-nav > ul.nav-links {
+    display: none !important;
+  }
+  .main-nav ul.nav-links li {
+    margin: 0.7em 0;
+    min-width: unset;
+  }
+  .main-nav ul.nav-links a {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.3em 0.5em;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .main-nav ul.nav-links a:hover {
+    background: #4a4e69;
+    color: #f2e9e4;
+  }
 }
 .automation-card li {
   margin-bottom: 0.2em;
@@ -48,27 +107,105 @@
 .automation-card-body {
   margin-top: 0.5em;
 }
+/* Mobile nav overlay styles */
+@media (max-width: 700px) {
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80vw;
+    max-width: 320px;
+    height: 100vh;
+    background: #22223b;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.2rem 1.2rem 1.2rem;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transform: translateX(-100%);
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .nav-overlay.open {
+    transform: translateX(0);
+    box-shadow: 2px 0 16px rgba(0,0,0,0.18);
+    pointer-events: auto;
+    opacity: 1;
+  }
+  .main-nav ul.nav-links {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    box-shadow: none;
+    position: static;
+    padding: 0;
+    min-width: unset;
+    gap: 0;
+  }
+  .main-nav ul.nav-links li {
+    margin: 0.7em 0;
+    min-width: unset;
+  }
+  .main-nav ul.nav-links a {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.3em 0.5em;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .main-nav ul.nav-links a:hover {
+    background: #4a4e69;
+    color: #f2e9e4;
+  }
+  /* Overlay background when open */
+  .nav-overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(34,34,59,0.55);
+    z-index: 1999;
+    display: none;
+  }
+  .nav-overlay-bg.open {
+    display: block;
+  }
+}
 section, main, [id] {
   scroll-margin-top: 130px;
 }
-/* Work Samples Tab Navigation */
-.work-samples-tabs {
+/* Work Samples Tab Navigation - 2x2 grid */
+.work-samples-tabs-grid {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1.2rem;
-  border-bottom: 2px solid #e0e0e0;
+  width: 100%;
+}
+.work-samples-tabs-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
 }
 .work-samples-tab {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 50%;
   background: none;
   border: none;
   border-bottom: 3px solid transparent;
   color: #4a4e69;
   font-size: 1.05em;
   font-weight: 600;
-  padding: 0.7em 1.5em 0.5em 1.5em;
+  padding: 0.7em 0;
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
   outline: none;
+  text-align: center;
 }
 .work-samples-tab.active {
   border-bottom: 3px solid #4a4e69;
@@ -483,43 +620,7 @@ header .site-title {
 }
 
 /* Modern horizontal navigation */
-.main-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.main-nav li {
-  display: inline-block;
-}
-.main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.5rem 0;
-  position: relative;
-  transition: color 0.2s;
-}
-.main-nav a::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #f2e9e4;
-  transition: width 0.2s;
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-}
-.main-nav a:hover {
-  color: #f2e9e4;
-}
-.main-nav a:hover::after {
-  width: 100%;
-}
+/* Removed duplicate navigation styles. Navigation styling is handled above for .main-nav ul.nav-links and .nav-hamburger. */
 
 main, section {
   max-width: 700px;
@@ -566,9 +667,9 @@ footer {
 }
 
 @media (max-width: 800px) {
-  main, section {
-    max-width: 98vw;
-    padding: 1rem;
+  .main-nav > ul.nav-links {
+    display: none !important;
+  }
   }
 
 /* Contact Cards - mimic resume card style */
@@ -610,7 +711,6 @@ footer {
   header h1 {
     font-size: 2rem;
   }
-}
 /* Typography & Layout */
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -721,4 +821,13 @@ footer {
   background: linear-gradient(to bottom, rgba(247,247,250,0), #f7f7fa 90%);
   border-radius: 0 0 12px 12px;
   pointer-events: none;
+}
+/* Hide carousel chevrons on mobile */
+@media (max-width: 700px) {
+  .carousel-btn {
+    display: none !important;
+  }
+  .carousel-wrapper {
+    gap: 0;
+  }
 }

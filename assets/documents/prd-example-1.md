@@ -71,7 +71,7 @@ Note that this feature allows for just one token deployed in this way per DAO. T
 All of the new UX we have planned for this project will be housed within a new tab in the Settings modal.
 
 ⚠️ **This is the same tab as we’ll be using for “Staking” for the Revenue Share Project.** ⚠️
-
+![](assets/images/prd-example-6.png "prd-example-6.png")
 There’s ample space to insert a new tab as you can see with the existing design above.
 
 The ‘Token’ tab will initially be empty except for explanatory copy and a CTA to “Deploy Token”.
@@ -95,9 +95,9 @@ In addition to what exists and is pictured below, we’ll want to add options to
 -   Set burnable/non-burnable status
 
 **Import existing token**
-
+![](assets/images/prd-example-7.png "prd-example-7.png")
 **Deploy new token**
-
+![](assets/images/prd-example-8.png "prd-example-8.png")
 **V2 UX improvements**
 
 One concern with the original token deployment user flow is that it makes it very easy for someone to accidentally mint way too many (or too few) tokens, or even worse, not allocate enough tokens to meet quorum on a vote.
@@ -122,7 +122,7 @@ Should be straightforward. We want to take two actions here:
 _For now, let’s leave things alone for ERC-721 token voting DAOs and not even show the “Token” tab._
 
 **Existing ERC-20 token information in settings**
-
+![](assets/images/prd-example-9.png "prd-example-9.png")
 ### (Stretch) Add token management options to the “Token” tab
 
 > 💡 This entire section can be deferred as needed. All of the functionality described here can be handled by custom proposals on a case by case basis.

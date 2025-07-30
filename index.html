@@ -6,19 +6,22 @@
   <title>Che Portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 <body>
   <header>
-    <h1 class="site-title">Che Bajandas</h1>
+    <div class="site-title">Che Bajandas</div>
     <nav class="main-nav">
-      <ul>
+      <button class="nav-hamburger" aria-label="Open navigation" tabindex="0">&#9776;</button>
+      <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#endorsements">Endorsements</a></li>
         <li><a href="#resume">Resume</a></li>
         <li><a href="#samples">Work Samples</a></li>
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="nav-overlay" id="navOverlay"></div>
+      <div class="nav-overlay-bg" id="navOverlayBg"></div>
     </nav>
   </header>
 
@@ -77,11 +80,15 @@
 
   <section id="samples">
     <h2>Work Samples</h2>
-    <div class="work-samples-tabs">
-      <button class="work-samples-tab active" data-tab="bug-tickets">Bug Tickets</button>
-      <button class="work-samples-tab" data-tab="prds">PRDs</button>
-      <button class="work-samples-tab" data-tab="project-docs">Project Docs</button>
-      <button class="work-samples-tab" data-tab="automation">Automation/Code</button>
+    <div class="work-samples-tabs-grid">
+      <div class="work-samples-tabs-row">
+        <button class="work-samples-tab active" data-tab="bug-tickets">Bug Tickets</button>
+        <button class="work-samples-tab" data-tab="prds">PRDs</button>
+      </div>
+      <div class="work-samples-tabs-row">
+        <button class="work-samples-tab" data-tab="project-docs">Project Docs</button>
+        <button class="work-samples-tab" data-tab="automation">Automation/Code</button>
+      </div>
     </div>
     <div class="work-samples-tab-content">
       <div id="bug-tickets-tab" class="work-samples-panel active">
@@ -153,10 +160,10 @@ BaseSeleniumTest.run(async (test) => {
     </div>
   </section>
 
-  <section id="projects">
+  <!-- <section id="projects">
     <h2>Projects</h2>
-    <p><!-- Summary or case studies here --></p>
-  </section>
+    <p> Summary or case studies here</p>
+  </section> -->
 
   <section id="contact">
     <h2>Contact & Social</h2>
@@ -208,6 +215,7 @@ BaseSeleniumTest.run(async (test) => {
   <script src="assets/js/js-yaml.min.js"></script>
   <script src="assets/js/marked.min.js"></script>
   <script src="assets/js/work-samples.js" defer></script> <!-- Loads bug tickets dynamically -->
+  <script src="assets/js/nav.js"></script>
   <script>
     // Auto-close modal after Formspree redirect
     if (window.location.pathname === '/' && window.location.hash === '#contact') {

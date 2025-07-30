@@ -70,5 +70,5 @@ This new tab should include options to update the values originally configured d
 -   Enable Clawback (toggle off/on)
 
 ## Add a “Frozen” indicator to frozen sub DAOs on the Organization page
-
+![](assets/images/prd-example-5.png "prd-example-5.png")
 When a sub DAO is frozen, we should show some indication that it is frozen on the sub DAO card on the Organization page.

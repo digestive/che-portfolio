@@ -134,14 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabPanels = document.querySelectorAll('.work-samples-panel');
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Remove active from all tabs and panels
       tabButtons.forEach(b => b.classList.remove('active'));
       tabPanels.forEach(panel => panel.classList.remove('active'));
-      // Add active to clicked tab and corresponding panel
       btn.classList.add('active');
       const tab = btn.getAttribute('data-tab');
       const panel = document.getElementById(tab + '-tab');
       if (panel) panel.classList.add('active');
     });
   });
+
+  // ...no hamburger menu logic here; handled in nav.js...
 });
