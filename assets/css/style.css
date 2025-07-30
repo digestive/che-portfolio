@@ -327,15 +327,30 @@ section, main, [id] {
 .ticket-card li {
   margin-left: 1.2em;
 }
-.ticket-card ol {
-  list-style-type: decimal;
-}
-.ticket-card ul {
-  list-style-type: disc;
-}
-.ticket-card a {
-  color: #22223b;
-  text-decoration: underline;
+  /* Holistic mobile modal centering and sizing */
+  .modal-overlay {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .modal-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    padding: 2rem 2rem 1.5rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    pointer-events: auto;
+    position: relative;
+    text-align: left;
+    margin: 0 auto;
+  }
+  @media (max-width: 700px) {
+  .modal-content {
+    width: 95vw;
+    max-width: 95vw;
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    border-radius: 12px;
+  }
 }
 .ticket-card b {
   color: #22223b;
@@ -422,11 +437,11 @@ section, main, [id] {
   color: #0077b6;
 }
 
-/* Contact Modal Styles */
+/* Contact Modal Styles - unified for all screen sizes */
 .modal-overlay {
   position: fixed;
   top: 0;
-    pointer-events: auto;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(34, 34, 59, 0.7);
@@ -434,17 +449,27 @@ section, main, [id] {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  pointer-events: auto;
 }
-.modal-content {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-  padding: 2rem 2rem 1.5rem 2rem;
-  max-width: 400px;
-  width: 100%;
+  .modal-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    padding: 2rem 2rem 1.5rem 2rem;
+    width: 100%;
+    max-width: 400px;
     pointer-events: auto;
-  position: relative;
-  text-align: left;
+    position: relative;
+    text-align: left;
+    margin: 0 auto;
+  }
+  @media (max-width: 700px) {
+  .modal-content {
+    width: 95vw;
+    max-width: 95vw;
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    border-radius: 12px;
+  }
 }
 .modal-close {
   position: absolute;
