@@ -97,7 +97,7 @@ function markdownToHtml(md) {
 }
 
 
-// For now, load bug tickets as before
+// Load bug tickets (add your markdown files to the array below)
 async function loadBugTickets() {
   await loadWorkSamples('bug-tickets-container', [
     'assets/tickets/bug-ticket-1.md',
@@ -142,6 +142,5 @@ document.addEventListener('DOMContentLoaded', () => {
       if (panel) panel.classList.add('active');
     });
   });
-
-  // ...no hamburger menu logic here; handled in nav.js...
+  
 });

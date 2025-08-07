@@ -257,7 +257,7 @@ td, th, p, li, span, div {
 }
 /* Show More/Less Button - clean, blue, no border/background, pointer cursor, block centered */
 .show-more-link {
-  color: #0078d4; /* Use the main blue from elsewhere on the page */
+  color: #0078d4;
   font-weight: 600;
   font-size: 1.05em;
   cursor: pointer;
@@ -275,7 +275,7 @@ td, th, p, li, span, div {
 }
 /* Show More/Less Button - clean, blue, no border/background, pointer cursor */
 .show-more-link {
-  color: #0078d4; /* Use the main blue from elsewhere on the page */
+  color: #0078d4;
   font-weight: 600;
   font-size: 1.05em;
   cursor: pointer;
@@ -602,7 +602,7 @@ td, th, p, li, span, div {
   font-style: italic;
   font-size: 1.15rem;
   color: #22223b;
-  height: 300px; /* Increased height to fit longest quote */
+  height: 300px;
   overflow-y: auto;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
@@ -616,7 +616,6 @@ td, th, p, li, span, div {
   color: #4a4e69;
   font-style: normal;
 }
-/* Carousel chevron buttons */
 /* Carousel dot navigation */
 .carousel-dots {
   display: flex;
