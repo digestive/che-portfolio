@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.getElementById('next-btn');
   let current = 0;
   let intervalId;
+  let interval = 13500;
 
   function showQuote(idx) {
     quotes.forEach((q, i) => {
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function resetInterval() {
     clearInterval(intervalId);
-    intervalId = setInterval(nextQuote, 8000);
+    intervalId = setInterval(nextQuote, interval);
   }
 
   prevBtn.addEventListener('click', function() {
@@ -56,5 +57,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   createDots();
   showQuote(current);
-  intervalId = setInterval(nextQuote, 8000);
+  intervalId = setInterval(nextQuote, interval);
 });
