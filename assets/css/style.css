@@ -115,6 +115,24 @@
 .automation-card-body {
   margin-top: 0.5em;
 }
+#automation-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#automation-tab > p {
+  margin-bottom: 0;
+}
+.automation-card {
+  background: #f7f7fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(74, 78, 105, 0.08);
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+  font-size: 1rem;
+  color: #22223b;
+}
 /* Mobile nav overlay styles */
 @media (max-width: 800px) {
   .nav-overlay {
