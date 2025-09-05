@@ -116,9 +116,11 @@
   margin-top: 0.5em;
 }
 #automation-tab {
-  display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+#automation-tab.active {
+  display: flex;
 }
 #automation-tab > p {
   margin-bottom: 0;
