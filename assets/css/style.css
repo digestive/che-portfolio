@@ -1,10 +1,9 @@
-/* Even spacing for work samples tab buttons */
 .work-samples-tabs-row {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
 }
-/* Desktop navigation styles */
+
 .main-nav ul.nav-links {
   display: flex;
   justify-content: center;
@@ -42,7 +41,7 @@
 .main-nav a:hover::after {
   width: 100%;
 }
-/* Hamburger menu hidden by default, shown only on mobile */
+/* Hamburger button */
 .nav-hamburger {
   display: none;
   background: none;
@@ -88,20 +87,48 @@
     color: #f2e9e4;
   }
 }
-.automation-card li {
-  margin-bottom: 0.2em;
+
+.ticket-card,
+.automation-card {
+  background: #f7f7fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(74, 78, 105, 0.08);
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+  font-size: 1rem;
+  color: #22223b;
 }
+
+.ticket-card a,
 .automation-card a {
   color: #22223b;
   text-decoration: underline;
 }
+
+.ticket-card b,
 .automation-card b {
   color: #22223b;
   font-weight: bold;
 }
+
+.ticket-card i,
 .automation-card i {
   color: #4a4e69;
 }
+
+.automation-card {
+  margin-top: 1.5rem;
+}
+
+.automation-card:first-of-type {
+  margin-top: 1rem;
+}
+
+.automation-card li {
+  margin-bottom: 0.2em;
+}
+
 .automation-code-block {
   background: #23272e;
   color: #f7f7fa;
@@ -115,21 +142,7 @@
 .automation-card-body {
   margin-top: 0.5em;
 }
-.automation-card {
-  background: #f7f7fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(74, 78, 105, 0.08);
-  padding: 1.5rem;
-  border: 1px solid #e0e0e0;
-  transition: box-shadow 0.2s;
-  font-size: 1rem;
-  color: #22223b;
-  margin-top: 1.5rem;
-}
-.automation-card:first-of-type {
-  margin-top: 1rem;
-}
-/* Mobile nav overlay styles */
+
 @media (max-width: 800px) {
   .nav-overlay {
     position: fixed;
@@ -182,7 +195,6 @@
     background: #4a4e69;
     color: #f2e9e4;
   }
-  /* Overlay background when open */
   .nav-overlay-bg {
     display: none;
     position: fixed;
@@ -198,10 +210,11 @@
     display: block !important;
   }
 }
+
 section, main, [id] {
   scroll-margin-top: 130px;
 }
-/* Work Samples Tab Navigation - 2x2 grid */
+
 .work-samples-tabs-grid {
   display: flex;
   flex-direction: column;
@@ -210,7 +223,7 @@ section, main, [id] {
   width: 100%;
 }
 
-/* Force long strings to wrap in all table cells and block elements */
+/* Long strings wrap in table cells and text elements */
 td, th, p, li, span, div {
   word-break: break-word;
   overflow-wrap: anywhere;
@@ -218,7 +231,6 @@ td, th, p, li, span, div {
 }
 
 @media (max-width: 700px) {
-/* Mobile font size and font family for site title */
 .site-title {
     font-size: 1.8rem !important;
     font-family: 'Inter', Arial, sans-serif !important;
@@ -269,7 +281,7 @@ td, th, p, li, span, div {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(74,78,105,0.08);
 }
-/* Show More/Less Button - clean, blue, no border/background, pointer cursor, block centered */
+/* Show more/less link */
 .show-more-link {
   color: #0078d4;
   font-weight: 600;
@@ -287,7 +299,6 @@ td, th, p, li, span, div {
   border-radius: 8px;
   transition: color 0.2s;
 }
-/* Show More/Less Button - clean, blue, no border/background, pointer cursor */
 .show-more-link {
   color: #0078d4;
   font-weight: 600;
@@ -325,19 +336,7 @@ td, th, p, li, span, div {
   margin-left: 1.2em;
   margin-bottom: 0.2em;
 }
-.ticket-card a {
-  color: #22223b;
-  text-decoration: underline;
-}
-.ticket-card b {
-  color: #22223b;
-  font-weight: bold;
-}
-.ticket-card i {
-  color: #4a4e69;
-}
 
-/* Work Sample Ticket Cards */
 .work-sample-tickets {
   margin-top: 1rem;
   display: flex;
@@ -345,56 +344,11 @@ td, th, p, li, span, div {
   gap: 1.5rem;
 }
 
-.ticket-card {
-  background: #f7f7fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(74, 78, 105, 0.08);
-  padding: 1.5rem;
-  border: 1px solid #e0e0e0;
-  transition: box-shadow 0.2s;
-  font-size: 1rem;
-  color: #22223b;
-}
-.ticket-card h2 {
-  margin-top: 0;
-  color: #4a4e69;
-  font-size: 1.2rem;
-}
-.ticket-card li {
-  margin-left: 1.2em;
-}
-  /* Holistic mobile modal centering and sizing */
-  .modal-overlay {
+.modal-overlay {
     align-items: center !important;
     justify-content: center !important;
   }
-  .modal-content {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-    padding: 2rem 2rem 1.5rem 2rem;
-    width: 100%;
-    max-width: 400px;
-    pointer-events: auto;
-    position: relative;
-    text-align: left;
-    margin: 0 auto;
-  }
-  @media (max-width: 700px) {
-  .modal-content {
-    width: 95vw;
-    max-width: 95vw;
-    padding: 1.2rem 0.7rem 1rem 0.7rem;
-    border-radius: 12px;
-  }
-}
-.ticket-card b {
-  color: #22223b;
-  font-weight: bold;
-}
-.ticket-card i {
-  color: #4a4e69;
-}
+
 .show-more-btn {
   background: #4a4e69;
   color: #fff;
@@ -416,36 +370,63 @@ td, th, p, li, span, div {
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
-.resume-card {
+
+/* Shared card base styles */
+.resume-card,
+.contact-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f7f8fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  padding: 1.5rem 1.2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   text-decoration: none;
   color: #22223b;
-  /* width removed to allow grid to control card width */
   transition: box-shadow 0.2s, transform 0.2s;
 }
-.resume-card:hover {
+
+.resume-card {
+  background: #f7f8fa;
+  padding: 1.5rem 1.2rem;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  color: #222;
+}
+
+.resume-card:hover,
+.contact-card:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.resume-card:hover {
   transform: translateY(-4px) scale(1.04);
   color: #4a4e69;
 }
-.resume-icon {
-  font-size: 2.2rem;
+
+.resume-icon,
+.contact-icon {
   margin-bottom: 0.7rem;
-  color: #4a4e69;
   transition: color 0.2s;
 }
+
+.resume-icon {
+  font-size: 2.2rem;
+  color: #4a4e69;
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0077b6;
+}
+
 .resume-card:hover .resume-icon {
   color: #22223b;
 }
 
-/* PRD Cards - matching contact card style */
 .prd-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -482,35 +463,13 @@ td, th, p, li, span, div {
   line-height: 1.3;
 }
 
-/* Contact Cards - mimic resume card style */
 .contact-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
 }
-.contact-card {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #222;
-  transition: box-shadow 0.2s;
-}
-.contact-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
-}
-.contact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #0077b6;
-}
 
-/* Contact Modal Styles - unified for all screen sizes */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -614,7 +573,7 @@ td, th, p, li, span, div {
     padding: 1.5rem 1rem;
   }
 }
-/* Carousel wrapper for chevrons */
+/* Carousel */
 .carousel-wrapper {
   display: flex;
   align-items: center;
@@ -639,7 +598,7 @@ td, th, p, li, span, div {
 .carousel-btn:hover {
   background: #22223b;
 }
-/* Carousel styles for endorsements */
+/* Carousel styles */
 .carousel {
   position: relative;
   max-width: 600px;
@@ -670,7 +629,7 @@ td, th, p, li, span, div {
   color: #4a4e69;
   font-style: normal;
 }
-/* Carousel dot navigation */
+/* Carousel dots */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -688,6 +647,7 @@ td, th, p, li, span, div {
 .carousel-dot.active {
   background: #4a4e69;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 body {
@@ -766,34 +726,6 @@ footer {
   }
   }
 
-/* Contact Cards - mimic resume card style */
-.contact-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-.contact-card {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #222;
-  transition: box-shadow 0.2s;
-}
-.contact-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
-}
-.contact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #0077b6;
-}
-
 @media (max-width: 700px) {
   .contact-cards {
     grid-template-columns: 1fr;
@@ -805,7 +737,8 @@ footer {
   header h1 {
     font-size: 2rem;
   }
-/* Typography & Layout */
+
+/* Typography */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -844,7 +777,6 @@ nav a:hover {
   color: #005a9e;
 }
 
-/* Section Styling */
 section {
   padding: 2rem;
   max-width: 800px;
@@ -859,8 +791,6 @@ h2 {
   color: #005a9e;
   margin-top: 0;
 }
-
-/* Lists and Quotes */
 
 ul {
   padding-left: 1.5rem;
@@ -883,7 +813,6 @@ blockquote footer {
   color: #555;
 }
 
-/* Contact Links */
 section#contact ul {
   list-style: none;
   padding: 0;
@@ -893,7 +822,6 @@ section#contact li {
   margin-bottom: 0.5rem !important;
 }
 
-/* Footer */
 footer {
   font-size: 0.85rem;
   color: #666;
@@ -914,7 +842,7 @@ footer {
   border-radius: 0 0 12px 12px;
   pointer-events: none;
 }
-/* Hide carousel chevrons on mobile and unify with nav tabs breakpoint */
+/* Chevron hide on mobile */
 @media (max-width: 800px) {
   .carousel-btn {
     display: none !important;
@@ -932,7 +860,6 @@ footer {
   }
 }
 
-/* Mobile font size and font family for site title */
 @media (max-width: 700px) {
 header {
     text-align: center;
