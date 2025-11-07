@@ -107,15 +107,6 @@ async function loadBugTickets() {
   ]);
 }
 
-
-// Load PRDs (add your markdown files to the array below)
-async function loadPRDs() {
-  await loadWorkSamples('prd-container', [
-    'assets/documents/prd-example-1.md',
-    'assets/documents/prd-example-2.md'
-  ]);
-}
-
 // Load project docs (add your markdown files to the array below)
 async function loadProjectDocs() {
   await loadWorkSamples('project-docs-container', [
@@ -126,7 +117,6 @@ async function loadProjectDocs() {
 
 document.addEventListener('DOMContentLoaded', () => {
   loadBugTickets();
-  loadPRDs();
   loadProjectDocs();
 
   // Tab navigation for Work Samples
