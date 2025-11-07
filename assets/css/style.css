@@ -445,7 +445,7 @@ td, th, p, li, span, div {
   color: #22223b;
 }
 
-/* PRD Cards - similar to resume cards but with distinct styling */
+/* PRD Cards - matching contact card style */
 .prd-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -457,30 +457,23 @@ td, th, p, li, span, div {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  border: 2px solid #e8e9ed;
-  border-radius: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   padding: 1.5rem 1rem;
   text-decoration: none;
   color: #22223b;
-  transition: all 0.2s;
+  transition: box-shadow 0.2s;
   min-height: 120px;
 }
 .prd-card:hover {
-  border-color: #4a4e69;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
-  color: #4a4e69;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
 }
 .prd-icon {
   font-size: 2rem;
   margin-bottom: 0.6rem;
   color: #0077b6;
   transition: color 0.2s;
-}
-.prd-card:hover .prd-icon {
-  color: #005f8e;
 }
 .prd-card span {
   text-align: center;
