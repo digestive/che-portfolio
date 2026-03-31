@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation | Testomniac</title>
+  <meta name="description" content="Testomniac documentation: learn how to set up, configure, and get the most out of AI-driven test automation." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300D5B8'/><text x='7' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23060C19'>T</text></svg>" />
+  <style>
+    .coming-soon {
+      padding: 48px 0;
+    }
+    .coming-soon-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .coming-soon h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .coming-soon p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV (top bar only, docs layout handles sidebar) ── -->
+  <nav class="nav scrolled" id="nav" style="position: fixed;">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">T</div>
+        <span class="nav-logo-text">Testomniac</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="docs.html" class="nav-link active">Documentation</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="contactBtn">Contact Us</button>
+        <a href="https://app.testomniac.com" target="_blank" class="btn btn-primary">
+          Launch App
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── DOCS LAYOUT ── -->
+  <div class="docs-layout">
+
+    <!-- Sidebar -->
+    <aside class="docs-sidebar">
+      <div class="docs-nav-label">Getting Started</div>
+      <a class="docs-nav-item active" onclick="showDoc('intro')">Introduction</a>
+      <a class="docs-nav-item" onclick="showDoc('quickstart')">Quick Start</a>
+      <a class="docs-nav-item" onclick="showDoc('firstscan')">Your First Scan</a>
+
+      <div class="docs-nav-label">Core Concepts</div>
+      <a class="docs-nav-item" onclick="showDoc('knowledge')">Knowledge Base</a>
+      <a class="docs-nav-item" onclick="showDoc('testlibrary')">Test Library</a>
+      <a class="docs-nav-item" onclick="showDoc('tokens')">AI Credits & Tokens</a>
+
+      <div class="docs-nav-label">Running Tests</div>
+      <a class="docs-nav-item" onclick="showDoc('manual')">Manual Runs</a>
+      <a class="docs-nav-item" onclick="showDoc('scheduled')">Scheduled Runs</a>
+      <a class="docs-nav-item" onclick="showDoc('cicd')">CI/CD Integration</a>
+
+      <div class="docs-nav-label">Integrations</div>
+      <a class="docs-nav-item" onclick="showDoc('jira')">Jira</a>
+      <a class="docs-nav-item" onclick="showDoc('linear')">Linear</a>
+      <a class="docs-nav-item" onclick="showDoc('github')">GitHub / GitHub Issues</a>
+
+      <div class="docs-nav-label">Advanced</div>
+      <a class="docs-nav-item" onclick="showDoc('onprem')">On-Premises Setup</a>
+      <a class="docs-nav-item" onclick="showDoc('api')">API Reference <span class="docs-tag">Soon</span></a>
+    </aside>
+
+    <!-- Main content -->
+    <main class="docs-content" id="docsMain">
+
+      <!-- INTRO (default shown) -->
+      <article id="doc-intro" class="doc-article">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Welcome to Testomniac</h1>
+          <p>Full documentation is coming soon. Check back here for guides on getting started, core concepts, integrations, and more.</p>
+        </div>
+      </article>
+
+      <!-- QUICKSTART -->
+      <article id="doc-quickstart" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Quick Start</h1>
+          <p>Step-by-step guide to getting your first test suite running in minutes.</p>
+        </div>
+      </article>
+
+      <!-- FIRST SCAN -->
+      <article id="doc-firstscan" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Your First Scan</h1>
+          <p>What to expect from the initial AI scan and how to get the best results.</p>
+        </div>
+      </article>
+
+      <!-- KNOWLEDGE BASE -->
+      <article id="doc-knowledge" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Knowledge Base</h1>
+          <p>How Testomniac stores and uses your application structure across test runs.</p>
+        </div>
+      </article>
+
+      <!-- TEST LIBRARY -->
+      <article id="doc-testlibrary" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Test Library</h1>
+          <p>Reviewing, editing, and managing the test cases Testomniac generates for your app.</p>
+        </div>
+      </article>
+
+      <!-- TOKENS -->
+      <article id="doc-tokens" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>AI Credits &amp; Tokens</h1>
+          <p>Understanding when AI credits are consumed and how to keep usage predictable.</p>
+        </div>
+      </article>
+
+      <!-- MANUAL RUNS -->
+      <article id="doc-manual" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Manual Runs</h1>
+          <p>How to trigger on-demand test runs from the dashboard or CLI.</p>
+        </div>
+      </article>
+
+      <!-- SCHEDULED RUNS -->
+      <article id="doc-scheduled" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Scheduled Runs</h1>
+          <p>Configuring Testomniac to run your test suite automatically on a schedule.</p>
+        </div>
+      </article>
+
+      <!-- CI/CD -->
+      <article id="doc-cicd" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>CI/CD Integration</h1>
+          <p>Triggering test runs from GitHub Actions, GitLab CI, and other pipelines.</p>
+        </div>
+      </article>
+
+      <!-- JIRA -->
+      <article id="doc-jira" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Jira Integration</h1>
+          <p>Auto-creating Jira tickets from test failures with screenshots and repro steps.</p>
+        </div>
+      </article>
+
+      <!-- LINEAR -->
+      <article id="doc-linear" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Linear Integration</h1>
+          <p>Pushing test failures directly to Linear issues, triaged to the right team.</p>
+        </div>
+      </article>
+
+      <!-- GITHUB -->
+      <article id="doc-github" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>GitHub Integration</h1>
+          <p>Creating GitHub Issues on failure and blocking merges when tests fail.</p>
+        </div>
+      </article>
+
+      <!-- ON-PREM -->
+      <article id="doc-onprem" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>On-Premises Setup</h1>
+          <p>Deploying Testomniac within your own infrastructure for full data control.</p>
+        </div>
+      </article>
+
+      <!-- API REFERENCE -->
+      <article id="doc-api" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>API Reference</h1>
+          <p>REST API documentation for programmatic access to projects, runs, and results.</p>
+        </div>
+      </article>
+
+    </main>
+  </div>
+
+  <!-- ── CONTACT MODAL ── -->
+  <div class="modal-overlay" id="contactModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2>Get in touch</h2>
+      <p>Have questions or want to book a demo? Drop us a message and we'll get back to you within one business day.</p>
+      <form onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input class="form-input" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell us about your team and what you're trying to solve..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('contactBtn').addEventListener('click', () => {
+      document.getElementById('contactModal').classList.add('open');
+    });
+
+    function showDoc(id) {
+      document.querySelectorAll('.doc-article').forEach(a => a.style.display = 'none');
+      document.querySelectorAll('.docs-nav-item').forEach(a => a.classList.remove('active'));
+      const target = document.getElementById('doc-' + id);
+      if (target) { target.style.display = ''; }
+      event.target.classList.add('active');
+      document.querySelector('.docs-content').scrollTop = 0;
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('[type="submit"]');
+      btn.textContent = '✓ Message sent!';
+      btn.style.background = 'var(--bg-raised)';
+      btn.style.color = 'var(--teal)';
+      btn.style.border = '1px solid var(--teal-border)';
+      setTimeout(() => {
+        document.getElementById('contactModal').classList.remove('open');
+        btn.textContent = 'Send Message';
+        btn.style = '';
+        e.target.reset();
+      }, 2000);
+    }
+  </script>
+  <script src="assets/js/grain.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Testomniac</title>
+  <meta name="description" content="Frequently asked questions about Testomniac: how it works, what it tests, and how it keeps your token costs low." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300D5B8'/><text x='7' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23060C19'>T</text></svg>" />
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">T</div>
+        <span class="nav-logo-text">Testomniac</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="faq.html" class="nav-link active">FAQ</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="docs.html" class="nav-link">Documentation</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="contactBtn">Contact Us</button>
+        <a href="https://app.testomniac.com" target="_blank" class="btn btn-primary">
+          Launch App
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero" style="padding-top: 140px; padding-bottom: 60px;">
+    <div class="container">
+      <h1 class="page-title reveal">
+        Frequently asked<br />
+        <span style="color: var(--teal);">questions.</span>
+      </h1>
+      <p class="page-sub reveal" style="transition-delay: 0.1s;">
+        Everything you need to know about how Testomniac works, what it covers, and whether it's right for your team.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FAQ FULL ── -->
+  <section style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="faq-full" id="faqAll">
+
+        <!-- Category: The Basics -->
+        <div class="faq-category">The Basics</div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What is the benefit of quality assurance focused testing?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                QA-focused testing is specifically designed to mirror how a real user interacts with software, prioritizing the end-user experience over the underlying code logic. Unlike traditional unit or integration tests that verify internal code behaviors, QA-focused tests identify usability issues, broken user flows, and UI regressions that directly affect your users. This makes it an essential layer of your testing strategy, especially as AI-generated code becomes more prevalent and the surface area for unexpected behaviors expands.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Who can benefit the most from using Testomniac?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac is ideal for software engineering teams that are using AI coding agents (like Cursor, Copilot, or Claude) to accelerate development and need a reliable way to catch regressions without dedicated QA headcount. It's especially valuable for early-stage startups, fast-moving product teams, and any engineering organization where the cost of usability regressions is high but dedicated QA resources are limited.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What types of testing does Testomniac do?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac focuses on front-end, user-facing functional testing. This includes end-to-end workflow testing (simulating full user journeys), regression testing (catching changes that break existing functionality),  and usability validation for key user flows like authentication, navigation, form submissions, and checkout sequences. It is not designed for unit testing, API testing, or performance/load testing.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: How It Works -->
+        <div class="faq-category" style="margin-top: 48px;">How It Works</div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How does Testomniac know what to test?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                On the initial scan, Testomniac uses AI to explore your application, map out its structure, and identify key user workflows. It then builds a test library around those workflows based on what it discovers. In subsequent runs, it leverages that stored knowledge base rather than re-exploring from scratch, saving time and token costs while maintaining deep product context. You can also provide hints or context about your application to guide the initial discovery process.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Are there things that Testomniac can't test?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Testomniac is purpose-built for front-end, user-facing web application testing. It is not designed for backend API testing, unit testing, load/performance testing, or native mobile applications. It also requires that the application under test be accessible via a URL; it cannot test applications that require complex infrastructure setup or that run exclusively in private, non-routable network environments without additional configuration.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What types of software can Testomniac integrate with?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac integrates with the project management and source control tools your team already uses. Currently supported integrations include <strong>Jira</strong>, <strong>Linear</strong>, <strong>GitHub Issues</strong>, and <strong>GitHub</strong>. When Testomniac detects a regression or failure, it can automatically create and assign tickets in your chosen tool, complete with screenshots and reproduction steps, so nothing falls through the cracks.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: AI & Cost -->
+        <div class="faq-category" style="margin-top: 48px;">AI & Cost Efficiency</div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How does Testomniac minimize token usage?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac uses a two-phase model. In the first phase, test creation, AI explores your application and writes test scripts. This is where AI inference and tokens are consumed. In the second phase, ongoing test execution, those scripts run as traditional automated tests with no AI involvement. This means your daily or CI/CD-triggered regression runs are completely token-free. AI is only re-engaged when new features are detected or tests need to be updated after a significant product change.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Why doesn't Testomniac use AI to execute its regression tests?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Because execution doesn't need it. Once a test has been written and validated, re-running it with AI adds cost and latency without adding value. Traditional test automation scripts are deterministic, fast, and cheap to run. By separating the intelligence layer (test creation) from the execution layer (test running), Testomniac gives you the benefits of AI-powered test authoring with the efficiency of conventional test runners. The result is a system that scales economically as your test suite grows.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA block -->
+      <div style="max-width: 820px; margin: 0 auto; padding-top: 60px; border-top: 1px solid var(--border); text-align: center;">
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Still have questions?</p>
+        <button class="btn btn-secondary" onclick="document.getElementById('contactModal').classList.add('open')">
+          Contact the Team
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">T</div>
+          <span class="nav-logo-text">Testomniac</span>
+        </a>
+        <p>AI driven test automation done the smart way. Built for teams that move fast and can't afford to break things.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html">Homepage</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="https://app.testomniac.com" target="_blank">Launch App</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#" onclick="document.getElementById('contactModal').classList.add('open');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Integrations</h4>
+        <ul>
+          <li><a href="#">Jira</a></li>
+          <li><a href="#">Linear</a></li>
+          <li><a href="#">GitHub Issues</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Testomniac. All rights reserved.</p>
+      <p>testomniac.com</p>
+    </div>
+  </footer>
+
+  <!-- ── CONTACT MODAL ── -->
+  <div class="modal-overlay" id="contactModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2>Get in touch</h2>
+      <p>Have questions or want to book a demo? Drop us a message and we'll get back to you within one business day.</p>
+      <form onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input class="form-input" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell us about your team and what you're trying to solve..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    document.getElementById('contactBtn').addEventListener('click', () => {
+      document.getElementById('contactModal').classList.add('open');
+    });
+
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('[type="submit"]');
+      btn.textContent = '✓ Message sent!';
+      btn.style.background = 'var(--bg-raised)';
+      btn.style.color = 'var(--teal)';
+      btn.style.border = '1px solid var(--teal-border)';
+      setTimeout(() => {
+        document.getElementById('contactModal').classList.remove('open');
+        btn.textContent = 'Send Message';
+        btn.style = '';
+        e.target.reset();
+      }, 2000);
+    }
+  </script>
+  <script src="assets/js/grain.js"></script>
+</body>
+</html>
