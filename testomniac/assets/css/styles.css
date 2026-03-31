@@ -348,7 +348,7 @@ h1, h2, h3, h4, h5 {
   outline: none;
   padding: 12px 20px;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 1rem; /* ≥16px prevents iOS Safari auto-zoom on focus */
   color: var(--text-primary);
   min-width: 0;
 }
@@ -1459,21 +1459,22 @@ footer {
 .nav-mobile-menu {
   display: none;
   position: fixed;
-  top: 0;
+  top: 68px;
   right: 0;
   bottom: 0;
   width: min(320px, 85vw);
   background: var(--bg-surface);
   border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
   z-index: 98;
   flex-direction: column;
-  padding: 88px 24px 32px;
+  padding: 24px 24px 32px;
   gap: 4px;
   transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-y: auto;
+  overscroll-behavior: none;
 }
 
 .nav-mobile-menu.open {
@@ -1486,8 +1487,10 @@ footer {
 .nav-mobile-menu::before {
   content: '';
   position: fixed;
-  inset: 0;
+  top: 68px;
+  left: 0;
   right: min(320px, 85vw);
+  bottom: 0;
   background: rgba(6, 12, 25, 0.6);
   backdrop-filter: blur(4px);
   pointer-events: none;
@@ -1498,30 +1501,6 @@ footer {
 .nav-mobile-menu.open::before {
   opacity: 1;
   pointer-events: all;
-}
-
-.nav-drawer-close {
-  position: absolute;
-  top: 14px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  flex-shrink: 0;
-}
-
-.nav-drawer-close:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-raised);
-  color: var(--text-primary);
 }
 
 .nav-mobile-menu .nav-link {

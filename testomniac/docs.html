@@ -72,11 +72,9 @@
         <span></span>
       </button>
     </div>
+  </nav>
 
-    <div class="nav-mobile-menu" id="navMobileMenu">
-      <button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
+  <div class="nav-mobile-menu" id="navMobileMenu">
       <a href="index.html" class="nav-link">Home</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="faq.html" class="nav-link">FAQ</a>
@@ -89,8 +87,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
       </div>
-    </div>
-  </nav>
+  </div>
 
   <!-- ── DOCS LAYOUT ── -->
   <div class="docs-layout">
@@ -289,15 +286,16 @@
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
     hamburger.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-    document.getElementById('navDrawerClose').addEventListener('click', closeMenu);
     document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target)) closeMenu();
+      if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
     });
 
     document.getElementById('contactBtn').addEventListener('click', () => {
