@@ -205,7 +205,20 @@
   <nav class="nav scrolled" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <div class="nav-logo-mark">T</div>
+        <div class="nav-logo-mark">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
+            <rect x="9" y="1" width="2" height="2" rx="1"/>
+            <rect x="8.5" y="2.5" width="3" height="1.5" rx="0.5"/>
+            <rect x="3" y="4" width="14" height="11" rx="2.5"/>
+            <circle cx="7.5" cy="8.5" r="1.5" fill="var(--bg-void)" opacity="0.85"/>
+            <circle cx="12.5" cy="8.5" r="1.5" fill="var(--bg-void)" opacity="0.85"/>
+            <rect x="6" y="12" width="2.5" height="1.5" rx="0.5" fill="var(--bg-void)" opacity="0.85"/>
+            <rect x="8.75" y="12" width="2.5" height="1.5" rx="0.5" fill="var(--bg-void)" opacity="0.85"/>
+            <rect x="11.5" y="12" width="2.5" height="1.5" rx="0.5" fill="var(--bg-void)" opacity="0.85"/>
+            <rect x="1" y="7" width="2" height="3" rx="1"/>
+            <rect x="17" y="7" width="2" height="3" rx="1"/>
+          </svg>
+        </div>
         <span class="nav-logo-text">Testomniac</span>
       </a>
       <div class="nav-links">
@@ -217,6 +230,30 @@
       </div>
       <div class="nav-actions">
         <button class="btn btn-ghost" id="contactBtn">Contact Us</button>
+        <a href="https://app.testomniac.com" target="_blank" class="btn btn-primary">
+          Launch App
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-menu" id="navMobileMenu">
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="pricing.html" class="nav-link active">Pricing</a>
+      <a href="docs.html" class="nav-link">Documentation</a>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="contactBtnMobile">Contact Us</button>
         <a href="https://app.testomniac.com" target="_blank" class="btn btn-primary">
           Launch App
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -440,7 +477,20 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">
-          <div class="nav-logo-mark">T</div>
+          <div class="nav-logo-mark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <rect x="9" y="1" width="2" height="2" rx="1"/>
+              <rect x="8.5" y="2.5" width="3" height="1.5" rx="0.5"/>
+              <rect x="3" y="4" width="14" height="11" rx="2.5"/>
+              <circle cx="7.5" cy="8.5" r="1.5" fill="var(--bg-void)" opacity="0.85"/>
+              <circle cx="12.5" cy="8.5" r="1.5" fill="var(--bg-void)" opacity="0.85"/>
+              <rect x="6" y="12" width="2.5" height="1.5" rx="0.5" fill="var(--bg-void)" opacity="0.85"/>
+              <rect x="8.75" y="12" width="2.5" height="1.5" rx="0.5" fill="var(--bg-void)" opacity="0.85"/>
+              <rect x="11.5" y="12" width="2.5" height="1.5" rx="0.5" fill="var(--bg-void)" opacity="0.85"/>
+              <rect x="1" y="7" width="2" height="3" rx="1"/>
+              <rect x="17" y="7" width="2" height="3" rx="1"/>
+            </svg>
+          </div>
           <span class="nav-logo-text">Testomniac</span>
         </a>
         <p>AI driven test automation done the smart way. Built for teams that move fast and can't afford to break things.</p>
@@ -510,7 +560,28 @@
       nav.classList.toggle('scrolled', window.scrollY > 30);
     });
 
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    document.getElementById('navDrawerClose').addEventListener('click', closeMenu);
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target)) closeMenu();
+    });
+
     document.getElementById('contactBtn').addEventListener('click', () => {
+      document.getElementById('contactModal').classList.add('open');
+    });
+    document.getElementById('contactBtnMobile').addEventListener('click', () => {
+      closeMenu();
       document.getElementById('contactModal').classList.add('open');
     });
 

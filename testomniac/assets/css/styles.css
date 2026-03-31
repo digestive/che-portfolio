@@ -189,10 +189,8 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
   color: var(--bg-void);
+  flex-shrink: 0;
 }
 
 .nav-logo-text {
@@ -1406,11 +1404,183 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+/* Drop the ghost "Contact Us" button before things get cramped */
+@media (max-width: 960px) {
+  .nav-inner { gap: 24px; }
+  .nav-actions #contactBtn { display: none; }
+}
+
+/* ─── HAMBURGER MENU BUTTON ─── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 8px;
+  transition: var(--transition);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.nav-hamburger:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-surface);
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+  transition: var(--transition);
+  transform-origin: center;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── MOBILE NAV DRAWER ─── */
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--bg-surface);
+  border-left: 1px solid var(--border);
+  z-index: 98;
+  flex-direction: column;
+  padding: 88px 24px 32px;
+  gap: 4px;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.nav-mobile-menu.open {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+/* Scrim behind the drawer */
+.nav-mobile-menu::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  right: min(320px, 85vw);
+  background: rgba(6, 12, 25, 0.6);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-mobile-menu.open::before {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav-drawer-close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.nav-drawer-close:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-raised);
+  color: var(--text-primary);
+}
+
+.nav-mobile-menu .nav-link {
+  padding: 13px 16px;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.nav-mobile-menu .nav-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.nav-mobile-menu .nav-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 860px) {
   .nav-links { display: none; }
+  .nav-actions { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-mobile-menu { display: flex; }
   .container { padding: 0 20px; }
   .nav-inner { padding: 0 20px; }
-  .hero { padding: 100px 20px 60px; }
+  .hero {
+    padding: 100px 20px 60px;
+    align-items: stretch;
+  }
+  .hero-content {
+    max-width: 100%;
+    width: 100%;
+    align-items: center;
+  }
+  .hero-tagline {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+  }
+  .hero-sub {
+    max-width: 100%;
+  }
+  .scanner-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
+  .scanner-form {
+    flex-direction: column;
+    border-radius: var(--radius-md);
+    padding: 8px;
+    gap: 8px;
+  }
+  .scanner-btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: calc(var(--radius-md) - 4px);
+  }
   .section { padding: 80px 0; }
   .feature-text { padding: 48px 28px; }
   .footer-inner { grid-template-columns: 1fr; gap: 40px; }
