@@ -60,9 +60,9 @@
       </div>
       <div class="nav-actions">
         <button class="btn btn-ghost" id="contactBtn">Contact Us</button>
-        <a href="https://app.testomniac.com" target="_blank" class="btn btn-primary">
-          Launch App
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        <a href="login.html" class="btn btn-primary">
+          Login
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
         </a>
       </div>
 
@@ -82,9 +82,9 @@
       <a href="docs.html" class="nav-link active">Documentation</a>
       <div class="nav-actions">
         <button class="btn btn-ghost" id="contactBtnMobile">Contact Us</button>
-        <a href="https://app.testomniac.com" target="_blank" class="btn btn-primary">
-          Launch App
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        <a href="login.html" class="btn btn-primary">
+          Login
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
         </a>
       </div>
   </div>
@@ -93,158 +93,192 @@
   <div class="docs-layout">
 
     <!-- Sidebar -->
-    <aside class="docs-sidebar">
-      <div class="docs-nav-label">Getting Started</div>
-      <a class="docs-nav-item active" onclick="showDoc('intro')">Introduction</a>
-      <a class="docs-nav-item" onclick="showDoc('quickstart')">Quick Start</a>
-      <a class="docs-nav-item" onclick="showDoc('firstscan')">Your First Scan</a>
+    <aside class="docs-sidebar" id="docsSidebar">
+      <button class="docs-sidebar-toggle" id="docsSidebarToggle" aria-expanded="true" aria-controls="docsNavList">
+        <span class="docs-sidebar-toggle-label" id="docsSidebarLabel">Introduction</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <nav id="docsNavList">
+        <div class="docs-nav-label">Getting Started</div>
+        <a class="docs-nav-item active" onclick="showDoc('intro', this)">Introduction</a>
+        <a class="docs-nav-item" onclick="showDoc('qa-principles', this)">Quality Assurance Principles</a>
+        <a class="docs-nav-item" onclick="showDoc('incorporate-qa', this)">How to Incorporate QA</a>
+        <a class="docs-nav-item" onclick="showDoc('testing-types', this)">Testing Types</a>
 
-      <div class="docs-nav-label">Core Concepts</div>
-      <a class="docs-nav-item" onclick="showDoc('knowledge')">Knowledge Base</a>
-      <a class="docs-nav-item" onclick="showDoc('testlibrary')">Test Library</a>
-      <a class="docs-nav-item" onclick="showDoc('tokens')">AI Credits & Tokens</a>
+        <div class="docs-nav-label">Configuring Your Project</div>
+        <a class="docs-nav-item" onclick="showDoc('org-structure', this)">Organization Structure</a>
+        <a class="docs-nav-item" onclick="showDoc('user-access', this)">User Access</a>
+        <a class="docs-nav-item" onclick="showDoc('integrations', this)">Integrations</a>
+        <a class="docs-nav-item" onclick="showDoc('ticket-settings', this)">Ticket Settings</a>
+        <a class="docs-nav-item" onclick="showDoc('workflow-settings', this)">Workflow Settings</a>
+        <a class="docs-nav-item" onclick="showDoc('notifications', this)">Notifications</a>
 
-      <div class="docs-nav-label">Running Tests</div>
-      <a class="docs-nav-item" onclick="showDoc('manual')">Manual Runs</a>
-      <a class="docs-nav-item" onclick="showDoc('scheduled')">Scheduled Runs</a>
-      <a class="docs-nav-item" onclick="showDoc('cicd')">CI/CD Integration</a>
+        <div class="docs-nav-label">Product Navigation Map</div>
+        <a class="docs-nav-item" onclick="showDoc('initial-scan', this)">Initial Scan</a>
+        <a class="docs-nav-item" onclick="showDoc('managing-markers', this)">Managing Markers</a>
+        <a class="docs-nav-item" onclick="showDoc('managing-flows', this)">Managing Flows</a>
 
-      <div class="docs-nav-label">Integrations</div>
-      <a class="docs-nav-item" onclick="showDoc('jira')">Jira</a>
-      <a class="docs-nav-item" onclick="showDoc('linear')">Linear</a>
-      <a class="docs-nav-item" onclick="showDoc('github')">GitHub / GitHub Issues</a>
-
-      <div class="docs-nav-label">Advanced</div>
-      <a class="docs-nav-item" onclick="showDoc('onprem')">On-Premises Setup</a>
-      <a class="docs-nav-item" onclick="showDoc('api')">API Reference <span class="docs-tag">Soon</span></a>
+        <div class="docs-nav-label">Running Tests</div>
+        <a class="docs-nav-item" onclick="showDoc('auto-triggers', this)">Automatic Triggers</a>
+        <a class="docs-nav-item" onclick="showDoc('manual-runs', this)">Manual Runs</a>
+        <a class="docs-nav-item" onclick="showDoc('prompting-changes', this)">Prompting Changes</a>
+      </nav>
     </aside>
 
     <!-- Main content -->
     <main class="docs-content" id="docsMain">
 
-      <!-- INTRO (default shown) -->
+      <!-- ── GETTING STARTED ── -->
+
+      <!-- INTRODUCTION -->
       <article id="doc-intro" class="doc-article">
+        <h1>Introduction</h1>
+        <p>Whether or not your team actively discusses or delegates quality assurance tasks, they're sure to be a part of your process. If you don't have dedicated quality assurance roles on your team, then the responsibility is almost certainly falling on your software engineers, designers, product managers, or all of the above to some degree or other. Worst case, all of your quality feedback is coming directly from your customers.</p>
+        <p>Testomniac aims to relieve this burden, regardless of where it falls, allowing each person on your team to focus on the primary responsibilities of their role. In the following documents we'll elaborate on the value of quality assurance testing, best practices and principles, and how Testomniac provides a low maintenance solution for your project.</p>
+        <p>You can also find documentation on this page to help you with onboarding once you begin using Testomniac.</p>
+      </article>
+
+      <!-- QUALITY ASSURANCE PRINCIPLES -->
+      <article id="doc-qa-principles" class="doc-article" style="display:none;">
+        <h1>Quality Assurance Principles</h1>
+        <p>Quality assurance is a specialized field, one that is systematic and user oriented. This is not to say that members of your team do not have the right attitude or skills to do quality assurance testing, but ultimately it isn't their primary focus and that tends to introduce risk and gaps in coverage.</p>
+        <p>A natural conclusion that many teams come to when it comes to safeguarding the end user quality of a product when there are not dedicated QA team members to assign to the task is to have software engineers own building out and maintaining QA automation. There's nothing inherently wrong with this approach, though it naturally conflicts with the core responsibilities of a software engineer: it's both inefficient and disregards the specialized nature of quality assurance processes.</p>
+        <p>First and foremost, quality assurance should be oriented around the end user experience. A software engineer should be allowed to focus primarily on delivering what was in the spec, making sure that it works as expected, and is built in an extensible way. Quality assurance practices should be focused not only on whether something works as expected, but also whether or not it is a good user experience. Quality assurance is at its best when it functions as a "second set of eyes", offering a different perspective from the person building something or even the person who envisioned or planned it.</p>
+        <p>There's nuance to this, to be sure, but where Testomniac can step in to fill this gap or take the load off of your team is to focus on the bigger picture. Your team can keep their sights on delivering new features while Testomniac covers your bases when it comes to how the new feature fits into the broader product. With a deep understanding of your product user flows and features, dedicated quality assurance can catch if anything changes in an unexpected way or if a side effect crops up seemingly completely disconnected from a new feature.</p>
+        <p>One of the biggest benefits of inserting a dedicated quality assurance function and steps into your workflow is mitigating as best as possible the chance that an unsightly issue that maybe could have easily been caught sneaks into production and is experienced by users. The people building the new features should be able to focus on the quality of the code and UI that's being added or modified without then needing to worry about the overall user experience of the entire product.</p>
+      </article>
+
+      <!-- HOW TO INCORPORATE QA -->
+      <article id="doc-incorporate-qa" class="doc-article" style="display:none;">
+        <h1>How to Incorporate QA</h1>
+        <p>When introducing quality assurance as a function or role on your team, the first thing you'll want to be sure of is that there's a deep, comprehensive understanding of your product, from a user perspective. What's less important is an understanding of how the product works behind the scenes, instead the goal is to experience the product as a user does, this being the best way to uncover issues that a typical user might encounter.</p>
+        <p>In a traditional organization that has dedicated quality assurance roles, a QA analyst would, in simple terms, perform two main functions: verification and regression testing. We'll elaborate in the next section how Testomniac defines the types of testing that it carries out on your behalf, but for now we'll focus on the industry standards.</p>
+        <p>Verification in this context refers to the process of running through a change after it has been finalized by a software engineer and doing two things: 1) double checking that what was delivered meets the expectations of the specification, or simply put, "does it work" 2) running through ancillary validations, or the less obvious aspects of quality. To elaborate on the less obvious aspects of quality may mean things like: does this make sense? Are there less common or obvious ways to interact with this and do those work? Does this change impact other systems or nearby user experiences? This is the part of the process that introduces the highest risk of slowing down the process, but the upside is that this effectively front loads what otherwise might be churn later on fixing production issues.</p>
+        <p>Regression testing in this context refers to the process of running through a checklist, or suite of predefined tests. Checklists are a tried and true process, tedious to be sure, but they safeguard against complacency and ensure that no part of your product is ignored for long stretches of time. A regression is when something that worked in a previous build or version of the app stops working, or a bug that was fixed previously crops up again. Regression testing aims to root out issues of this type by running through the core flows of your product, interacting not just with new features but existing ones. This type of testing catches the most nefarious of issues: the ones that you would never expect and are likely to miss.</p>
+        <p>When we seek to incorporate quality assurance into our processes, these are the primary areas we are likely to get the most value from: a second set of eyes immediately after a new feature or feature update is deemed ready and a user experience checklist runthrough ahead of a production release.</p>
+      </article>
+
+      <!-- TESTING TYPES -->
+      <article id="doc-testing-types" class="doc-article" style="display:none;">
+        <h1>Testing Types</h1>
+        <p>In the above section we defined "verification" and "regression testing" in industry terms. Here we'll elaborate on how Testomniac performs this type of coverage and our specific terminology.</p>
+        <p>"Ticket testing" is where Testomniac is inserted into your process to perform verification type testing when a change is submitted by a software engineer as "ready". Depending on your team's process, this may be signaled by a ticket in your tracking software being marked a certain status, which is tied back to a pull request in your source control system, or it may simply be the status of a pull request itself. Testomniac picks up the status signals you define for tickets or pull requests, performs testing based on the details provided in ticket and pull request, reports any issues if there are any, and adds tests to the test library based on the new changes if called for. As is the case with a dedicated quality assurance analyst, Testomniac will leave comments on tickets and/or pull requests and update statuses depending on the results of its testing.</p>
+        <p>"Regression testing" for Testomniac specifically means running through the full suite of tests for the most comprehensive coverage of your product. Although Testomniac tests are built to be fast, this is an operation that isn't meant to be run frequently and instead is done either as a pre release operation or at regular set intervals throughout the week or month, or both. This type of testing is ideal for catching issues that may slip through the cracks, not being obvious at a glance or in parts of the app your team doesn't interact with as much. Without this type of testing, the overall quality of your product can drift in significant ways over time, with little issues compounding and eroding the overall user experience.</p>
+        <p>"Sanity testing" is a form of regression testing, with a narrower focus. This type of testing zeroes in on the "core flow" or most critical parts of your product's user experience. Sanity testing can be performed ahead of merges into your main branch, offering quick feedback if there's a critical issue that slipped in with the changes. Testing in this way catches what, honestly speaking, could be your more embarrassing misses or trivial mistakes that end up having the most expensive consequences.</p>
+        <p>At Testomniac, we offer all of the above types of coverage with minimal input from yourself or others on your team, catered to your own particular way of doing things.</p>
+      </article>
+
+      <!-- ── CONFIGURING YOUR PROJECT ── -->
+
+      <!-- ORGANIZATION STRUCTURE -->
+      <article id="doc-org-structure" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
-          <h1>Welcome to Testomniac</h1>
-          <p>Full documentation is coming soon. Check back here for guides on getting started, core concepts, integrations, and more.</p>
+          <h1>Organization Structure</h1>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
-      <!-- QUICKSTART -->
-      <article id="doc-quickstart" class="doc-article" style="display:none;">
+      <!-- USER ACCESS -->
+      <article id="doc-user-access" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
-          <h1>Quick Start</h1>
-          <p>Step-by-step guide to getting your first test suite running in minutes.</p>
+          <h1>User Access</h1>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
-      <!-- FIRST SCAN -->
-      <article id="doc-firstscan" class="doc-article" style="display:none;">
+      <!-- INTEGRATIONS -->
+      <article id="doc-integrations" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
-          <h1>Your First Scan</h1>
-          <p>What to expect from the initial AI scan and how to get the best results.</p>
+          <h1>Integrations</h1>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
-      <!-- KNOWLEDGE BASE -->
-      <article id="doc-knowledge" class="doc-article" style="display:none;">
+      <!-- TICKET SETTINGS -->
+      <article id="doc-ticket-settings" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
-          <h1>Knowledge Base</h1>
-          <p>How Testomniac stores and uses your application structure across test runs.</p>
+          <h1>Ticket Settings</h1>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
-      <!-- TEST LIBRARY -->
-      <article id="doc-testlibrary" class="doc-article" style="display:none;">
+      <!-- WORKFLOW SETTINGS -->
+      <article id="doc-workflow-settings" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
-          <h1>Test Library</h1>
-          <p>Reviewing, editing, and managing the test cases Testomniac generates for your app.</p>
+          <h1>Workflow Settings</h1>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
-      <!-- TOKENS -->
-      <article id="doc-tokens" class="doc-article" style="display:none;">
+      <!-- NOTIFICATIONS -->
+      <article id="doc-notifications" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
-          <h1>AI Credits &amp; Tokens</h1>
-          <p>Understanding when AI credits are consumed and how to keep usage predictable.</p>
+          <h1>Notifications</h1>
+          <p>This article is coming soon.</p>
+        </div>
+      </article>
+
+      <!-- ── PRODUCT NAVIGATION MAP ── -->
+
+      <!-- INITIAL SCAN -->
+      <article id="doc-initial-scan" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Initial Scan</h1>
+          <p>This article is coming soon.</p>
+        </div>
+      </article>
+
+      <!-- MANAGING MARKERS -->
+      <article id="doc-managing-markers" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Managing Markers</h1>
+          <p>This article is coming soon.</p>
+        </div>
+      </article>
+
+      <!-- MANAGING FLOWS -->
+      <article id="doc-managing-flows" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Managing Flows</h1>
+          <p>This article is coming soon.</p>
+        </div>
+      </article>
+
+      <!-- ── RUNNING TESTS ── -->
+
+      <!-- AUTOMATIC TRIGGERS -->
+      <article id="doc-auto-triggers" class="doc-article" style="display:none;">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h1>Automatic Triggers</h1>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
       <!-- MANUAL RUNS -->
-      <article id="doc-manual" class="doc-article" style="display:none;">
+      <article id="doc-manual-runs" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
           <h1>Manual Runs</h1>
-          <p>How to trigger on-demand test runs from the dashboard or CLI.</p>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
-      <!-- SCHEDULED RUNS -->
-      <article id="doc-scheduled" class="doc-article" style="display:none;">
+      <!-- PROMPTING CHANGES -->
+      <article id="doc-prompting-changes" class="doc-article" style="display:none;">
         <div class="coming-soon">
           <div class="coming-soon-icon">🚧</div>
-          <h1>Scheduled Runs</h1>
-          <p>Configuring Testomniac to run your test suite automatically on a schedule.</p>
-        </div>
-      </article>
-
-      <!-- CI/CD -->
-      <article id="doc-cicd" class="doc-article" style="display:none;">
-        <div class="coming-soon">
-          <div class="coming-soon-icon">🚧</div>
-          <h1>CI/CD Integration</h1>
-          <p>Triggering test runs from GitHub Actions, GitLab CI, and other pipelines.</p>
-        </div>
-      </article>
-
-      <!-- JIRA -->
-      <article id="doc-jira" class="doc-article" style="display:none;">
-        <div class="coming-soon">
-          <div class="coming-soon-icon">🚧</div>
-          <h1>Jira Integration</h1>
-          <p>Auto-creating Jira tickets from test failures with screenshots and repro steps.</p>
-        </div>
-      </article>
-
-      <!-- LINEAR -->
-      <article id="doc-linear" class="doc-article" style="display:none;">
-        <div class="coming-soon">
-          <div class="coming-soon-icon">🚧</div>
-          <h1>Linear Integration</h1>
-          <p>Pushing test failures directly to Linear issues, triaged to the right team.</p>
-        </div>
-      </article>
-
-      <!-- GITHUB -->
-      <article id="doc-github" class="doc-article" style="display:none;">
-        <div class="coming-soon">
-          <div class="coming-soon-icon">🚧</div>
-          <h1>GitHub Integration</h1>
-          <p>Creating GitHub Issues on failure and blocking merges when tests fail.</p>
-        </div>
-      </article>
-
-      <!-- ON-PREM -->
-      <article id="doc-onprem" class="doc-article" style="display:none;">
-        <div class="coming-soon">
-          <div class="coming-soon-icon">🚧</div>
-          <h1>On-Premises Setup</h1>
-          <p>Deploying Testomniac within your own infrastructure for full data control.</p>
-        </div>
-      </article>
-
-      <!-- API REFERENCE -->
-      <article id="doc-api" class="doc-article" style="display:none;">
-        <div class="coming-soon">
-          <div class="coming-soon-icon">🚧</div>
-          <h1>API Reference</h1>
-          <p>REST API documentation for programmatic access to projects, runs, and results.</p>
+          <h1>Prompting Changes</h1>
+          <p>This article is coming soon.</p>
         </div>
       </article>
 
@@ -306,12 +340,28 @@
       document.getElementById('contactModal').classList.add('open');
     });
 
-    function showDoc(id) {
+    // Docs sidebar mobile toggle
+    document.getElementById('docsSidebarToggle').addEventListener('click', () => {
+      const navList = document.getElementById('docsNavList');
+      const toggle = document.getElementById('docsSidebarToggle');
+      const isOpen = navList.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    function showDoc(id, el) {
       document.querySelectorAll('.doc-article').forEach(a => a.style.display = 'none');
       document.querySelectorAll('.docs-nav-item').forEach(a => a.classList.remove('active'));
       const target = document.getElementById('doc-' + id);
       if (target) { target.style.display = ''; }
-      event.target.classList.add('active');
+      const activeEl = el || event.target;
+      activeEl.classList.add('active');
+      // Update mobile toggle label and collapse nav
+      const label = activeEl.textContent.trim();
+      document.getElementById('docsSidebarLabel').textContent = label;
+      if (window.innerWidth <= 860) {
+        document.getElementById('docsNavList').classList.remove('open');
+        document.getElementById('docsSidebarToggle').setAttribute('aria-expanded', 'false');
+      }
       document.querySelector('.docs-content').scrollTop = 0;
     }
 
