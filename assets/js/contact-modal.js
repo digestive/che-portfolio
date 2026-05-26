@@ -1,5 +1,7 @@
 // Contact Modal JS
-// Handles opening, closing, and form submission
+// Handles opening, closing, and form submission via Google Apps Script
+
+const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw5dfCnkmiEMpk34kglapOcciRxczU0UselJcmk_j3yLuYvqK7rgadeFDdZHt0R-oY/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
   const openBtn = document.getElementById('open-contact-modal');
@@ -30,5 +32,36 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  // Do NOT prevent default on form submit; let Formspree handle it
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name    = document.getElementById('contact-name').value;
+      var email   = document.getElementById('contact-email').value;
+      var message = document.getElementById('contact-message').value;
+
+      fetch(CONTACT_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          name:      name,
+          email:     email,
+          message:   message,
+          timestamp: new Date().toISOString()
+        })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.result === 'success') {
+          form.style.display = 'none';
+          if (successMsg) successMsg.style.display = 'block';
+          form.reset();
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(function() {
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  }
 });

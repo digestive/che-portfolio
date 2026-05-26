@@ -306,14 +306,7 @@ BaseSeleniumTest.run(async (test) => {
           <label for="contact-message">Message</label>
           <textarea id="contact-message" name="message" rows="4" required></textarea>
           <button type="submit" class="modal-submit">Send</button>
-          <input type="hidden" name="_subject" value="New message from portfolio contact form">
-          <input type="hidden" name="_next" value="/">
         </form>
-        <script>
-          // Set Formspree endpoint
-          document.getElementById('contact-form').setAttribute('action', 'https://formspree.io/f/xjkorvya');
-          document.getElementById('contact-form').setAttribute('method', 'POST');
-        </script>
         <div id="contact-form-success" style="display:none; color:#4a4e69; margin-top:1rem;">Thank you! Your message has been sent.</div>
       </div>
     </div>
@@ -327,13 +320,6 @@ BaseSeleniumTest.run(async (test) => {
   <script src="assets/js/marked.min.js"></script>
   <script src="assets/js/work-samples.js" defer></script> <!-- Loads bug tickets dynamically -->
   <script src="assets/js/nav.js"></script>
-  <script>
-    // Auto-close modal after Formspree redirect
-    if (window.location.pathname === '/' && window.location.hash === '#contact') {
-      var overlay = document.getElementById('contact-modal-overlay');
-      if (overlay) overlay.style.display = 'none';
-    }
-  </script>
   <script src="assets/js/carousel.js"></script>
 </body>
 </html>
