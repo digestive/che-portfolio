@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 .work-samples-tabs-row {
   display: flex;
   justify-content: space-between;
@@ -647,8 +649,6 @@ td, th, p, li, span, div {
 .carousel-dot.active {
   background: #4a4e69;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 body {
   font-family: 'Inter', Arial, sans-serif;
