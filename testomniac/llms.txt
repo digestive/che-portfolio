@@ -1,0 +1,46 @@
+# Testomniac
+
+> AI-driven test automation platform that automatically generates and runs front-end test suites for web applications.
+
+Testomniac helps software engineering teams — especially those using AI coding agents like Cursor, GitHub Copilot, or Claude — catch regressions without dedicated QA headcount. It uses a two-phase model: AI generates test scripts in the creation phase, then those scripts execute as traditional automated tests with no ongoing AI inference cost.
+
+## Core Capabilities
+
+- Scans your web application, maps user workflows, and generates a full test suite automatically
+- Regression and sanity suites run as conventional scripts after creation — zero token cost per execution
+- Self-healing tests update automatically when your UI changes
+- CI/CD integration: triggers on pull requests, ticket updates, or a schedule
+- Automatic ticket creation with screenshots and reproduction steps when failures are detected
+- Integrations: Jira, Linear, GitHub Issues, GitHub
+
+## Target Audience
+
+- Engineering teams using AI coding agents (Cursor, GitHub Copilot, Claude Code) who need regression safety
+- Early-stage startups and fast-moving product teams without dedicated QA headcount
+- Organizations where the cost of usability regressions is high but QA resources are limited
+
+## Pages
+
+- Homepage: https://testomniac.com/
+- About: https://testomniac.com/about
+- Pricing: https://testomniac.com/pricing
+- FAQ: https://testomniac.com/faq
+- Documentation: https://testomniac.com/docs
+
+## Pricing Tiers
+
+- **Starter** — 1 project, 500 credits/mo. For solo founders or small teams validating an early product.
+- **Growth** — 3 projects, 2,500 credits/mo. Most popular. For small teams shipping across multiple products.
+- **Scale** — 10 projects, 10,000 credits/mo. For growing orgs with higher release cadence.
+- **Enterprise** — Unlimited projects, custom pricing. For large orgs with compliance or dedicated infrastructure needs.
+- All plans include a free initial UX scan (typically worth $15–40).
+
+## Team
+
+Testomniac was founded by John Huang (CEO) and Che Bajandas (CPO) — engineers with direct experience building software with AI tools and managing the QA challenges that come with rapid, AI-assisted development.
+
+## Key Differentiators
+
+- Token-efficient: AI is used only for test creation. Ongoing regression runs cost nothing in AI tokens.
+- No QA headcount required: the platform handles test generation, maintenance, and failure reporting.
+- Purpose-built for the AI coding era: designed for teams whose codebases change rapidly due to AI-assisted development.

@@ -1,0 +1,1025 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Testomniac</title>
+  <meta name="description" content="Log in or create your Testomniac account to access AI-driven test automation." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#00D5B8" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.PNG" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.PNG" />
+  <link rel="apple-touch-icon" sizes="256x256" href="assets/images/logo-mark.PNG" />
+  <style>
+    /* ─── AUTH PAGE LAYOUT ─── */
+    .auth-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Left panel — branding */
+    .auth-panel-left {
+      background: var(--bg-base);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 48px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-panel-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/images/circuit.svg') center / cover no-repeat;
+      filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(130deg);
+      opacity: 0.07;
+      pointer-events: none;
+    }
+
+    .auth-panel-left::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 40% 60%, rgba(0, 213, 184, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .auth-panel-copy {
+      position: relative;
+      z-index: 2;
+      padding: 48px 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-panel-copy h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .auth-panel-copy p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .auth-feature-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .auth-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .auth-feature-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--teal-glow);
+      border: 1px solid var(--teal-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .auth-feature-icon svg {
+      color: var(--teal);
+    }
+
+    .auth-feature-item p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 0;
+      padding: 0;
+    }
+
+    .auth-feature-item strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .auth-panel-footer {
+      position: relative;
+      z-index: 2;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* Right panel — form */
+    .auth-panel-right {
+      background: var(--bg-void);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 72px 64px 64px;
+    }
+
+    .auth-form-wrap {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* Tab switcher (Login / Create Account) */
+    .auth-tabs {
+      display: flex;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      margin-bottom: 36px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 10px 16px;
+      text-align: center;
+      border-radius: calc(var(--radius-md) - 3px);
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .auth-tab.active {
+      background: var(--bg-raised);
+      color: var(--text-primary);
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .auth-tab:hover:not(.active) {
+      color: var(--text-secondary);
+    }
+
+    /* Form panels */
+    .auth-panel {
+      display: none;
+    }
+
+    .auth-panel.active {
+      display: block;
+    }
+
+    .auth-form-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .auth-form-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* Social auth buttons */
+    .auth-social {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .btn-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 13px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-social:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-raised);
+      transform: translateY(-1px);
+    }
+
+    .btn-social svg {
+      flex-shrink: 0;
+    }
+
+    /* Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Input with optional icon prefix */
+    .auth-input-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .auth-input-wrap .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .auth-input-icon {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .auth-input-wrap:focus-within .auth-input-icon {
+      color: var(--teal);
+    }
+
+    .auth-input-wrap .form-input {
+      padding-left: 42px;
+    }
+
+    /* Password toggle */
+    .auth-pw-toggle {
+      position: absolute;
+      right: 14px;
+      bottom: 13px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .auth-pw-toggle:hover {
+      color: var(--text-primary);
+    }
+
+    /* Form footer row */
+    .auth-form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .auth-remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .auth-remember input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--teal);
+      cursor: pointer;
+    }
+
+    .auth-forgot {
+      font-size: 0.85rem;
+      color: var(--teal);
+      transition: var(--transition);
+    }
+
+    .auth-forgot:hover {
+      color: #00EDD0;
+      text-decoration: underline;
+    }
+
+    /* Submit button */
+    .btn-auth-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-auth-submit .btn-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(6,12,25,0.3);
+      border-top-color: var(--bg-void);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .btn-auth-submit.loading .btn-label { display: none; }
+    .btn-auth-submit.loading .btn-spinner { display: inline-block; }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Password strength */
+    .pw-strength {
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .pw-strength-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .pw-strength-bar span {
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--bg-raised);
+      transition: background 0.3s ease;
+    }
+
+    .pw-strength-bar span.filled-weak   { background: #ff5757; }
+    .pw-strength-bar span.filled-fair   { background: #ffaa00; }
+    .pw-strength-bar span.filled-good   { background: var(--blue); }
+    .pw-strength-bar span.filled-strong { background: var(--teal); }
+
+    .pw-strength-label {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    /* TOS row */
+    .auth-tos {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .auth-tos input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--teal);
+      cursor: pointer;
+    }
+
+    .auth-tos a {
+      color: var(--teal);
+    }
+
+    .auth-tos a:hover {
+      text-decoration: underline;
+    }
+
+    /* Switch mode link */
+    .auth-switch {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .auth-switch button {
+      background: none;
+      border: none;
+      color: var(--teal);
+      cursor: pointer;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: 600;
+      transition: var(--transition);
+      padding: 0;
+    }
+
+    .auth-switch button:hover {
+      color: #00EDD0;
+      text-decoration: underline;
+    }
+
+    /* Success / error states */
+    .auth-message {
+      display: none;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      margin-bottom: 20px;
+      border: 1px solid;
+      animation: fadeSlideIn 0.3s ease;
+    }
+
+    .auth-message.error {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(255, 87, 87, 0.06);
+      border-color: rgba(255, 87, 87, 0.25);
+      color: #ff8a8a;
+    }
+
+    .auth-message.success {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(0, 213, 184, 0.06);
+      border-color: var(--teal-border);
+      color: var(--teal);
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Forgot password panel */
+    #forgotPanel {
+      display: none;
+    }
+
+    #forgotPanel.active {
+      display: block;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      .auth-page {
+        grid-template-columns: 1fr;
+      }
+      .auth-panel-left {
+        display: none;
+      }
+      .auth-panel-right {
+        padding: 40px 24px;
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-top: 48px;
+      }
+      .auth-form-wrap {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal top bar for back navigation -->
+  <nav class="nav scrolled" id="nav" style="z-index: 300;">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="assets/images/logo-horizontal.PNG" alt="Testomniac" width="177" height="42" />
+      </a>
+      <div style="margin-left: auto;">
+        <a href="/" class="btn btn-ghost" style="font-size:0.85rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px;"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Back to site
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       AUTH PAGE
+  ══════════════════════════════════════ -->
+  <div class="auth-page" style="margin-top: 68px; min-height: calc(100vh - 68px);">
+
+    <!-- LEFT — Branding panel -->
+    <div class="auth-panel-left">
+      <div class="auth-panel-copy">
+        <h2>
+          Testing that builds<br />itself.
+          <span style="color: var(--teal);">Runs itself.</span>
+        </h2>
+        <p>
+          Sign in to access your dashboard, monitor test runs, review AI-generated test suites, and keep your front-end coverage in check.
+        </p>
+
+        <div class="auth-feature-list">
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></polyline></svg>
+            </div>
+            <div>
+              <strong>Auto-generated test suites</strong>
+              <p>AI writes and maintains tests as your UI evolves.</p>
+            </div>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div>
+              <strong>Token-efficient execution</strong>
+              <p>Runs deterministically after the first generation pass.</p>
+            </div>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76a6 6 0 010 8.49m-8.48-.01a6 6 0 010-8.49m11.31-2.82a10 10 0 010 14.14m-14.14 0a10 10 0 010-14.14"/></svg>
+            </div>
+            <div>
+              <strong>CI/CD integrations</strong>
+              <p>Connect with GitHub, Jira, Linear, and more.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-panel-footer">
+        © 2026 Testomniac · <a href="/" style="color: inherit;">Privacy</a> · <a href="/" style="color: inherit;">Terms</a>
+      </div>
+    </div>
+
+    <!-- RIGHT — Auth forms -->
+    <div class="auth-panel-right">
+      <div class="auth-form-wrap">
+
+        <!-- Tab switcher -->
+        <div class="auth-tabs" id="authTabs">
+          <button class="auth-tab active" data-tab="login" onclick="switchTab('login')">Log In</button>
+          <button class="auth-tab" data-tab="signup" onclick="switchTab('signup')">Create Account</button>
+        </div>
+
+        <!-- ── LOGIN PANEL ── -->
+        <div class="auth-panel active" id="panelLogin">
+          <h1 class="auth-form-title">Welcome back</h1>
+          <p class="auth-form-subtitle">Sign in to your Testomniac account.</p>
+
+          <!-- Message area -->
+          <div class="auth-message" id="loginMsg"></div>
+
+          <!-- Google SSO -->
+          <div class="auth-social">
+            <button class="btn-social" onclick="handleGoogleAuth()">
+              <!-- Google "G" logo -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              Continue with Google
+            </button>
+          </div>
+
+          <div class="auth-divider">or continue with email</div>
+
+          <!-- Email / password form -->
+          <form id="loginForm" onsubmit="handleLogin(event)" novalidate>
+            <div class="auth-input-wrap">
+              <label class="form-label" for="loginEmail">Work Email</label>
+              <span class="auth-input-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <input
+                class="form-input"
+                type="email"
+                id="loginEmail"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="auth-input-wrap">
+              <label class="form-label" for="loginPassword">Password</label>
+              <span class="auth-input-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input
+                class="form-input"
+                type="password"
+                id="loginPassword"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                required
+              />
+              <button type="button" class="auth-pw-toggle" onclick="togglePassword('loginPassword', this)" aria-label="Toggle password visibility">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+
+            <div class="auth-form-row">
+              <label class="auth-remember">
+                <input type="checkbox" id="rememberMe" />
+                Remember me
+              </label>
+              <a href="#" class="auth-forgot" onclick="showForgot(event)">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-auth-submit" id="loginSubmitBtn">
+              <span class="btn-label">Log In</span>
+              <span class="btn-spinner"></span>
+            </button>
+          </form>
+
+          <div class="auth-switch">
+            Don't have an account?
+            <button onclick="switchTab('signup')">Create one</button>
+          </div>
+        </div>
+
+        <!-- ── FORGOT PASSWORD PANEL ── -->
+        <div id="forgotPanel">
+          <a href="#" onclick="hideForgot(event)" style="display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px;transition:var(--transition);" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-muted)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Back to login
+          </a>
+          <h1 class="auth-form-title">Reset your password</h1>
+          <p class="auth-form-subtitle">Enter the email address on your account and we'll send you a reset link.</p>
+
+          <div class="auth-message" id="forgotMsg"></div>
+
+          <form id="forgotForm" onsubmit="handleForgot(event)" novalidate>
+            <div class="auth-input-wrap">
+              <label class="form-label" for="forgotEmail">Email Address</label>
+              <span class="auth-input-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <input
+                class="form-input"
+                type="email"
+                id="forgotEmail"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-auth-submit" id="forgotSubmitBtn">
+              <span class="btn-label">Send Reset Link</span>
+              <span class="btn-spinner"></span>
+            </button>
+          </form>
+        </div>
+
+        <!-- ── SIGN UP PANEL ── -->
+        <div class="auth-panel" id="panelSignup">
+          <h1 class="auth-form-title">Create your account</h1>
+          <p class="auth-form-subtitle">Start automating your front-end tests in minutes.</p>
+
+          <!-- Message area -->
+          <div class="auth-message" id="signupMsg"></div>
+
+          <!-- Google SSO -->
+          <div class="auth-social">
+            <button class="btn-social" onclick="handleGoogleAuth()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              Sign up with Google
+            </button>
+          </div>
+
+          <div class="auth-divider">or sign up with email</div>
+
+          <form id="signupForm" onsubmit="handleSignup(event)" novalidate>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="auth-input-wrap" style="margin-bottom:0;">
+                <label class="form-label" for="signupFirst">First Name</label>
+                <span class="auth-input-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <input class="form-input" type="text" id="signupFirst" placeholder="Ada" autocomplete="given-name" required />
+              </div>
+              <div class="auth-input-wrap" style="margin-bottom:0;">
+                <label class="form-label" for="signupLast">Last Name</label>
+                <span class="auth-input-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <input class="form-input" type="text" id="signupLast" placeholder="Lovelace" autocomplete="family-name" required />
+              </div>
+            </div>
+
+            <div class="auth-input-wrap" style="margin-top:16px;">
+              <label class="form-label" for="signupEmail">Work Email</label>
+              <span class="auth-input-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <input
+                class="form-input"
+                type="email"
+                id="signupEmail"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="auth-input-wrap">
+              <label class="form-label" for="signupPassword">Password</label>
+              <span class="auth-input-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input
+                class="form-input"
+                type="password"
+                id="signupPassword"
+                placeholder="Create a strong password"
+                autocomplete="new-password"
+                required
+                oninput="updatePasswordStrength(this.value)"
+              />
+              <button type="button" class="auth-pw-toggle" onclick="togglePassword('signupPassword', this)" aria-label="Toggle password visibility">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+
+            <!-- Password strength meter -->
+            <div class="pw-strength" id="pwStrength" style="display:none;">
+              <div class="pw-strength-bar" id="pwStrengthBar">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <span class="pw-strength-label" id="pwStrengthLabel">—</span>
+            </div>
+
+            <label class="auth-tos">
+              <input type="checkbox" id="tosCheck" required />
+              I agree to Testomniac's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+            </label>
+
+            <button type="submit" class="btn btn-primary btn-auth-submit" id="signupSubmitBtn">
+              <span class="btn-label">Create Account</span>
+              <span class="btn-spinner"></span>
+            </button>
+          </form>
+
+          <div class="auth-switch">
+            Already have an account?
+            <button onclick="switchTab('login')">Log in</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/grain.js"></script>
+  <script>
+    // ── Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // ── Tab switching
+    function switchTab(tab) {
+      // Hide forgot panel, show tab UI
+      hideForgotSilent();
+
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+      document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+
+      // Clear messages
+      clearMsg('loginMsg');
+      clearMsg('signupMsg');
+    }
+
+    // ── Password visibility toggle
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const isHidden = input.type === 'password';
+      input.type = isHidden ? 'text' : 'password';
+      btn.querySelector('.eye-icon').style.opacity = isHidden ? '0.4' : '1';
+    }
+
+    // ── Password strength
+    function updatePasswordStrength(val) {
+      const wrap = document.getElementById('pwStrength');
+      const bar  = document.getElementById('pwStrengthBar');
+      const lbl  = document.getElementById('pwStrengthLabel');
+
+      if (!val) { wrap.style.display = 'none'; return; }
+      wrap.style.display = 'block';
+
+      let score = 0;
+      if (val.length >= 8)  score++;
+      if (/[A-Z]/.test(val)) score++;
+      if (/[0-9]/.test(val)) score++;
+      if (/[^A-Za-z0-9]/.test(val)) score++;
+
+      const levels = ['weak', 'fair', 'good', 'strong'];
+      const labels = ['Weak', 'Fair', 'Good', 'Strong'];
+      const level  = levels[score - 1] || 'weak';
+
+      bar.querySelectorAll('span').forEach((s, i) => {
+        s.className = i < score ? `filled-${level}` : '';
+      });
+      lbl.textContent = `Strength: ${labels[score - 1] || 'Weak'}`;
+      lbl.style.color = score >= 3 ? 'var(--teal)' : score === 2 ? '#ffaa00' : '#ff8a8a';
+    }
+
+    // ── Forgot password
+    function showForgot(e) {
+      e.preventDefault();
+      document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('authTabs').style.display = 'none';
+      document.getElementById('forgotPanel').style.display = 'block';
+      clearMsg('forgotMsg');
+    }
+
+    function hideForgot(e) {
+      e.preventDefault();
+      hideForgotSilent();
+      switchTab('login');
+    }
+
+    function hideForgotSilent() {
+      document.getElementById('forgotPanel').style.display = 'none';
+      document.getElementById('authTabs').style.display = 'flex';
+    }
+
+    // ── Message helpers
+    function showMsg(id, type, text) {
+      const el = document.getElementById(id);
+      const icon = type === 'error'
+        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>'
+        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><polyline points="20 6 9 17 4 12"/></svg>';
+      el.className = `auth-message ${type}`;
+      el.innerHTML = icon + '<span>' + text + '</span>';
+    }
+
+    function clearMsg(id) {
+      const el = document.getElementById(id);
+      el.className = 'auth-message';
+      el.innerHTML = '';
+    }
+
+    // ── Loading state helpers
+    function setLoading(btnId, state) {
+      document.getElementById(btnId).classList.toggle('loading', state);
+    }
+
+    // ── Google Auth (mockup)
+    function handleGoogleAuth() {
+      // In production this triggers OAuth flow
+      // For mockup: simulate redirect delay
+      const btn = event.currentTarget;
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+      btn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" style="animation:spin 0.7s linear infinite;">
+          <circle cx="12" cy="12" r="10" stroke="var(--border)" stroke-width="2.5" fill="none"/>
+          <path d="M12 2a10 10 0 0 1 10 10" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        Redirecting to Google…
+      `;
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.style.opacity = '';
+        // Reset to original — in production this would redirect
+        const isSignup = btn.closest('#panelSignup') !== null;
+        btn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          ${isSignup ? 'Sign up with Google' : 'Continue with Google'}
+        `;
+        showMsg(isSignup ? 'signupMsg' : 'loginMsg', 'error', 'Google authentication is not yet available in this demo environment.');
+      }, 1800);
+    }
+
+    // ── Login submit
+    function handleLogin(e) {
+      e.preventDefault();
+      clearMsg('loginMsg');
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      if (!email || !password) {
+        showMsg('loginMsg', 'error', 'Please fill in all fields.');
+        return;
+      }
+
+      setLoading('loginSubmitBtn', true);
+
+      // Simulate API call
+      setTimeout(() => {
+        setLoading('loginSubmitBtn', false);
+        // Demo: treat any email+password as "account not found" to show the flow
+        showMsg('loginMsg', 'error', 'No account found with that email. <a href="#" onclick="switchTab(\'signup\');return false;" style="color:var(--teal);font-weight:600;">Create one?</a>');
+      }, 1400);
+    }
+
+    // ── Signup submit
+    function handleSignup(e) {
+      e.preventDefault();
+      clearMsg('signupMsg');
+
+      const first    = document.getElementById('signupFirst').value.trim();
+      const last     = document.getElementById('signupLast').value.trim();
+      const email    = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value;
+      const tos      = document.getElementById('tosCheck').checked;
+
+      if (!first || !last || !email || !password) {
+        showMsg('signupMsg', 'error', 'Please fill in all fields.');
+        return;
+      }
+      if (!tos) {
+        showMsg('signupMsg', 'error', 'You must agree to the Terms of Service to continue.');
+        return;
+      }
+
+      setLoading('signupSubmitBtn', true);
+
+      // Simulate API call
+      setTimeout(() => {
+        setLoading('signupSubmitBtn', false);
+        showMsg('signupMsg', 'success', `Account created! Check <strong>${email}</strong> for a verification link.`);
+        document.getElementById('signupForm').reset();
+        document.getElementById('pwStrength').style.display = 'none';
+      }, 1600);
+    }
+
+    // ── Forgot password submit
+    function handleForgot(e) {
+      e.preventDefault();
+      clearMsg('forgotMsg');
+      const email = document.getElementById('forgotEmail').value.trim();
+
+      if (!email) {
+        showMsg('forgotMsg', 'error', 'Please enter your email address.');
+        return;
+      }
+
+      setLoading('forgotSubmitBtn', true);
+
+      setTimeout(() => {
+        setLoading('forgotSubmitBtn', false);
+        showMsg('forgotMsg', 'success', `If that address is on file, a reset link is on its way.`);
+        document.getElementById('forgotForm').reset();
+      }, 1400);
+    }
+
+    // Check for ?tab=signup in URL to pre-select tab
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('tab') === 'signup') switchTab('signup');
+  </script>
+</body>
+</html>

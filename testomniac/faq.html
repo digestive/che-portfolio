@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Testomniac</title>
+  <meta name="description" content="Frequently asked questions about Testomniac: how it works, what it tests, and how its architecture keeps execution fast and costs predictable. Have more questions? Our team is a message away." />
+  <link rel="canonical" href="https://testomniac.com/faq" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Testomniac" />
+  <meta property="og:title" content="FAQ | Testomniac" />
+  <meta property="og:description" content="Frequently asked questions about Testomniac: how it works, what it tests, and how its architecture keeps execution fast and costs predictable. Have more questions? Our team is a message away." />
+  <meta property="og:url" content="https://testomniac.com/faq" />
+  <meta property="og:image" content="https://testomniac.com/assets/images/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ | Testomniac" />
+  <meta name="twitter:description" content="Frequently asked questions about Testomniac: how it works, what it tests, and how its architecture keeps execution fast and costs predictable. Have more questions? Our team is a message away." />
+  <meta name="twitter:image" content="https://testomniac.com/assets/images/og-default.png" />
+  <meta name="theme-color" content="#00D5B8" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.PNG" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.PNG" />
+  <link rel="apple-touch-icon" sizes="256x256" href="assets/images/logo-mark.PNG" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://testomniac.com/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://testomniac.com/faq" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the benefit of quality assurance focused testing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "QA-focused testing is specifically designed to mirror how a real user interacts with software, prioritizing the end-user experience over the underlying code logic. Unlike traditional unit or integration tests that verify internal code behaviors, QA-focused tests identify usability issues, broken user flows, and UI regressions that directly affect your users. This makes it an essential layer of your testing strategy, especially as AI-generated code becomes more prevalent and the surface area for unexpected behaviors expands."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who can benefit the most from using Testomniac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Testomniac is ideal for software engineering teams that are using AI coding agents (like Cursor, Copilot, or Claude) to accelerate development and need a reliable way to catch regressions without dedicated QA headcount. It's especially valuable for early-stage startups, fast-moving product teams, and any engineering organization where the cost of usability regressions is high but dedicated QA resources are limited."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of testing does Testomniac do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Testomniac focuses on front-end, user-facing functional testing. This includes end-to-end workflow testing (simulating full user journeys), regression testing (catching changes that break existing functionality), and usability validation for key user flows like authentication, navigation, form submissions, and checkout sequences. It is not designed for unit testing, API testing, or performance/load testing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Testomniac know what to test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On the initial scan, Testomniac uses AI to explore your application, map out its structure, and identify key user workflows. It then builds a test library around those workflows based on what it discovers. In subsequent runs, it leverages that stored knowledge base rather than re-exploring from scratch, saving time and reducing execution overhead while maintaining deep product context. You can also provide hints or context about your application to guide the initial discovery process."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there things that Testomniac can't test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Testomniac is purpose-built for front-end, user-facing web application testing. It is not designed for backend API testing, unit testing, load/performance testing, or native mobile applications. It also requires that the application under test be accessible via a URL; it cannot test applications that require complex infrastructure setup or that run exclusively in private, non-routable network environments without additional configuration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of software can Testomniac integrate with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Testomniac integrates with the project management and source control tools your team already uses. Currently supported integrations include Jira, Linear, GitHub Issues, and GitHub. When Testomniac detects a regression or failure, it can automatically create and assign tickets in your chosen tool, complete with screenshots and reproduction steps, so nothing falls through the cracks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Testomniac keep execution fast and costs predictable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Testomniac uses a two-phase approach. In the first phase, AI explores your application and writes test scripts. In the second phase, those scripts run as traditional automated tests with no AI involvement. Daily and CI/CD-triggered regression runs complete quickly and without AI overhead. AI only comes back into the picture when new features appear or tests need updating after a significant product change. As AI pricing continues to evolve across the tooling landscape, this architectural separation means your costs stay predictable regardless of how underlying model pricing shifts industry-wide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why doesn't Testomniac use AI to execute its regression tests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because execution doesn't need it. Once a test has been written and validated, re-running it with AI adds cost and latency without adding value. Traditional test automation scripts are deterministic, fast, and cheap to run. By separating the intelligence layer (test creation) from the execution layer (test running), Testomniac gives you the benefits of AI-powered test authoring with the efficiency of conventional test runners. The result is a system that scales economically as your test suite grows."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="assets/images/logo-horizontal.PNG" alt="Testomniac" width="177" height="42" />
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/faq" class="nav-link active">FAQ</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+        <a href="/docs" class="nav-link">Documentation</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="contactBtn">Contact Us</button>
+        <button class="btn btn-primary" onclick="document.getElementById('waitlistModal').classList.add('open')">
+          Join Waitlist
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" id="navMobileMenu">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/faq" class="nav-link active">FAQ</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/docs" class="nav-link">Documentation</a>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="contactBtnMobile">Contact Us</button>
+        <button class="btn btn-primary" onclick="document.getElementById('waitlistModal').classList.add('open')">
+          Join Waitlist
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+  </div>
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero" style="padding-top: 140px; padding-bottom: 60px;">
+    <div class="container">
+      <h1 class="page-title reveal">
+        Frequently asked<br />
+        <span style="color: var(--teal);">questions.</span>
+      </h1>
+      <p class="page-sub reveal" style="transition-delay: 0.1s;">
+        Everything you need to know about how Testomniac works, what it covers, and whether it's right for your team.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FAQ FULL ── -->
+  <section style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="faq-full" id="faqAll">
+
+        <!-- Category: The Basics -->
+        <div class="faq-category">The Basics</div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What is the benefit of quality assurance focused testing?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                QA-focused testing is specifically designed to mirror how a real user interacts with software, prioritizing the end-user experience over the underlying code logic. Unlike traditional unit or integration tests that verify internal code behaviors, QA-focused tests identify usability issues, broken user flows, and UI regressions that directly affect your users. This makes it an essential layer of your testing strategy, especially as AI-generated code becomes more prevalent and the surface area for unexpected behaviors expands.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Who can benefit the most from using Testomniac?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac is ideal for software engineering teams that are using AI coding agents (like Cursor, Copilot, or Claude) to accelerate development and need a reliable way to catch regressions without dedicated QA headcount. It's especially valuable for early-stage startups, fast-moving product teams, and any engineering organization where the cost of usability regressions is high but dedicated QA resources are limited.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What types of testing does Testomniac do?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac focuses on front-end, user-facing functional testing. This includes end-to-end workflow testing (simulating full user journeys), regression testing (catching changes that break existing functionality),  and usability validation for key user flows like authentication, navigation, form submissions, and checkout sequences. It is not designed for unit testing, API testing, or performance/load testing.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: How It Works -->
+        <div class="faq-category" style="margin-top: 48px;">How It Works</div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How does Testomniac know what to test?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                On the initial scan, Testomniac uses AI to explore your application, map out its structure, and identify key user workflows. It then builds a test library around those workflows based on what it discovers. In subsequent runs, it leverages that stored knowledge base rather than re-exploring from scratch, saving time and reducing execution overhead while maintaining deep product context. You can also provide hints or context about your application to guide the initial discovery process.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Are there things that Testomniac can't test?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Testomniac is purpose-built for front-end, user-facing web application testing. It is not designed for backend API testing, unit testing, load/performance testing, or native mobile applications. It also requires that the application under test be accessible via a URL; it cannot test applications that require complex infrastructure setup or that run exclusively in private, non-routable network environments without additional configuration.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What types of software can Testomniac integrate with?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac integrates with the project management and source control tools your team already uses. Currently supported integrations include <strong>Jira</strong>, <strong>Linear</strong>, <strong>GitHub Issues</strong>, and <strong>GitHub</strong>. When Testomniac detects a regression or failure, it can automatically create and assign tickets in your chosen tool, complete with screenshots and reproduction steps, so nothing falls through the cracks.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: AI & Cost -->
+        <div class="faq-category" style="margin-top: 48px;">AI & Cost Efficiency</div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How does Testomniac keep execution fast and costs predictable?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Testomniac uses a two-phase approach. In the first phase, AI explores your application and writes test scripts. In the second phase, those scripts run as traditional automated tests with no AI involvement. Daily and CI/CD-triggered regression runs complete quickly and without AI overhead. AI only comes back into the picture when new features appear or tests need updating after a significant product change. As AI pricing continues to evolve across the tooling landscape, this architectural separation means your costs stay predictable regardless of how underlying model pricing shifts industry-wide.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Why doesn't Testomniac use AI to execute its regression tests?
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Because execution doesn't need it. Once a test has been written and validated, re-running it with AI adds cost and latency without adding value. Traditional test automation scripts are deterministic, fast, and cheap to run. By separating the intelligence layer (test creation) from the execution layer (test running), Testomniac gives you the benefits of AI-powered test authoring with the efficiency of conventional test runners. The result is a system that scales economically as your test suite grows.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA block -->
+      <div style="max-width: 820px; margin: 0 auto; padding-top: 60px; text-align: center;">
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Still have questions?</p>
+        <button class="btn btn-secondary" onclick="document.getElementById('contactModal').classList.add('open')">
+          Contact the Team
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <img src="assets/images/logo-horizontal.PNG" alt="Testomniac" width="177" height="42" />
+        </a>
+        <p>AI driven test automation done the smart way. Built for teams that move fast and can't afford to break things.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/">Homepage</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/docs">Documentation</a></li>
+          <li><a href="#" onclick="document.getElementById('waitlistModal').classList.add('open');return false;">Join Waitlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="#" onclick="document.getElementById('contactModal').classList.add('open');return false;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Testomniac. All rights reserved.</p>
+      <p>testomniac.com</p>
+    </div>
+  </footer>
+
+  <!-- ── WAITLIST MODAL ── -->
+  <div class="modal-overlay" id="waitlistModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('waitlistModal').classList.remove('open')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2>Join the waitlist</h2>
+      <p>Be the first to know when Testomniac launches. We'll email you as soon as it's your turn.</p>
+      <form id="waitlistModalForm" onsubmit="handleWaitlistModalSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input class="form-input" type="email" id="waitlistModalEmail" placeholder="you@company.com" required autocomplete="email" />
+        </div>
+        <button type="submit" class="btn btn-primary" id="waitlistModalBtn" style="width:100%;justify-content:center;padding:14px;">
+          Join Waitlist
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+        <p id="waitlistModalNote" style="margin-top:12px;font-size:0.82rem;color:var(--text-muted);text-align:center;">No spam, ever. We'll only email you when it's your turn.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── CONTACT MODAL ── -->
+  <div class="modal-overlay" id="contactModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2>Get in touch</h2>
+      <p>Have questions or want to book a demo? Drop us a message and we'll get back to you within one business day.</p>
+      <form onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input class="form-input" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell us about your team and what you're trying to solve..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
+    });
+
+    document.getElementById('contactBtn').addEventListener('click', () => {
+      document.getElementById('contactModal').classList.add('open');
+    });
+    document.getElementById('contactBtnMobile').addEventListener('click', () => {
+      closeMenu();
+      document.getElementById('contactModal').classList.add('open');
+    });
+
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+    const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXzJZ5gbW5r1H9szl65f6JHSD1RyoXXGji9F8ihd3mTV03wail9RsGm91kexh235OA/exec';
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('[type="submit"]');
+      const name = form.querySelector('input[type="text"]').value.trim();
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const message = form.querySelector('textarea').value.trim();
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch(CONTACT_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, timestamp: new Date().toISOString() }),
+      })
+        .then(() => {
+          btn.textContent = '✓ Message sent!';
+          btn.style.background = 'var(--bg-raised)';
+          btn.style.color = 'var(--teal)';
+          btn.style.border = '1px solid var(--teal-border)';
+          setTimeout(() => {
+            document.getElementById('contactModal').classList.remove('open');
+            btn.textContent = 'Send Message';
+            btn.disabled = false;
+            btn.style = '';
+            form.reset();
+          }, 2000);
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        });
+    }
+
+    const WAITLIST_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJtXv22IEhjFHSg4Wggp2NQJkKIGDdHIGhjP_LXQkWXkBOuHy2VPWItnwjmaatQWT1/exec';
+
+    function handleWaitlistModalSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('waitlistModalEmail').value.trim();
+      const btn = document.getElementById('waitlistModalBtn');
+      const note = document.getElementById('waitlistModalNote');
+      if (!email) return;
+      btn.disabled = true;
+      btn.innerHTML = 'Submitting…';
+      fetch(WAITLIST_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
+      })
+        .then(() => {
+          btn.innerHTML = "✓ You're on the list!";
+          btn.style.background = 'var(--bg-raised)';
+          btn.style.color = 'var(--teal)';
+          btn.style.border = '1px solid var(--teal-border)';
+          note.textContent = "We'll be in touch soon.";
+          note.style.color = 'var(--teal)';
+          document.getElementById('waitlistModalEmail').disabled = true;
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.innerHTML = 'Join Waitlist <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+          note.textContent = 'Something went wrong. Please try again.';
+          note.style.color = '#ff6b6b';
+        });
+    }
+  </script>
+  <script src="scripts/grain.js"></script>
+</body>
+</html>

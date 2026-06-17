@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Testomniac</title>
+  <meta name="description" content="Meet the engineers behind Testomniac — an AI-driven test automation platform built by John Huang and Che Bajandas for teams shipping fast with AI coding tools." />
+  <link rel="canonical" href="https://testomniac.com/about" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Testomniac" />
+  <meta property="og:title" content="About Us | Testomniac" />
+  <meta property="og:description" content="Meet the engineers behind Testomniac — an AI-driven test automation platform built by John Huang and Che Bajandas for teams shipping fast with AI coding tools." />
+  <meta property="og:url" content="https://testomniac.com/about" />
+  <meta property="og:image" content="https://testomniac.com/assets/images/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Us | Testomniac" />
+  <meta name="twitter:description" content="Meet the engineers behind Testomniac — an AI-driven test automation platform built by John Huang and Che Bajandas for teams shipping fast with AI coding tools." />
+  <meta name="twitter:image" content="https://testomniac.com/assets/images/og-default.png" />
+  <meta name="theme-color" content="#00D5B8" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.PNG" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.PNG" />
+  <link rel="apple-touch-icon" sizes="256x256" href="assets/images/logo-mark.PNG" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://testomniac.com/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://testomniac.com/about" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://testomniac.com/#organization",
+    "name": "Testomniac",
+    "url": "https://testomniac.com/",
+    "description": "AI-driven test automation platform built by engineers for engineering teams shipping fast with AI coding tools.",
+    "member": [
+      {
+        "@type": "Person",
+        "name": "John Huang",
+        "jobTitle": "CEO",
+        "worksFor": { "@id": "https://testomniac.com/#organization" }
+      },
+      {
+        "@type": "Person",
+        "name": "Che Bajandas",
+        "jobTitle": "CPO",
+        "worksFor": { "@id": "https://testomniac.com/#organization" }
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="assets/images/logo-horizontal.PNG" alt="Testomniac" width="177" height="42" />
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link active">About</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+        <a href="/docs" class="nav-link">Documentation</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="contactBtn">Contact Us</button>
+        <button class="btn btn-primary" onclick="document.getElementById('waitlistModal').classList.add('open')">
+          Join Waitlist
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" id="navMobileMenu">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/about" class="nav-link active">About</a>
+      <a href="/faq" class="nav-link">FAQ</a>
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/docs" class="nav-link">Documentation</a>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="contactBtnMobile">Contact Us</button>
+        <button class="btn btn-primary" onclick="document.getElementById('waitlistModal').classList.add('open')">
+          Join Waitlist
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+  </div>
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero" style="padding-top: 140px; padding-bottom: 60px;">
+    <div class="container">
+      <h1 class="page-title reveal">
+        Built by engineers<br />
+        <span style="color: var(--teal);">for engineers.</span>
+      </h1>
+      <p class="page-sub reveal" style="transition-delay: 0.1s;">
+        Testomniac was born from firsthand frustration with the testing bottleneck, the gap between how fast you can build and how confident you can be in what ships.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── ORIGIN STORY ── -->
+  <section class="section">
+    <div class="container">
+      <div class="about-intro reveal">
+        <div class="section-label">Origin</div>
+        <p>
+          Testomniac is the brainchild of John Huang, who was inspired by his own experience leading engineering teams through the early days of AI-assisted development. As AI coding agents became a core part of the workflow, John noticed a consistent pattern: the speed gains from AI-generated code were frequently eroded by the time spent manually verifying that nothing had broken.
+        </p>
+        <p>
+          The problem wasn't just engineering capacity; it was a structural gap. Teams were adopting AI for code generation without the corresponding infrastructure to catch what AI gets wrong. Front-end regressions, subtle UX breakage, flows that worked last week but silently stopped, and these were slipping through because manual QA couldn't keep pace.
+        </p>
+        <p>
+          Testomniac was built to close that gap. Not by adding headcount, not by requiring engineers to write more tests manually, but by applying AI intelligently to the problem of test creation, then stepping aside so execution runs fast and cost-free.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-label">The Team</div>
+      <h2 class="section-title reveal">The people behind the product.</h2>
+      <p class="section-body reveal" style="transition-delay:0.1s;">
+        A small, focused team with deep roots in engineering leadership and quality advocacy.
+      </p>
+
+      <div class="team-grid">
+
+        <div class="team-card reveal">
+          <div class="team-avatar"><img src="assets/images/john profile pic.jpeg" alt="John Huang, CEO of Testomniac" width="240" height="240" loading="lazy" /></div>
+          <div>
+            <div class="team-name">John Huang</div>
+            <div class="team-role">Founder · CEO</div>
+          </div>
+          <p class="team-bio">
+            John is a seasoned engineering leader with a track record of building and scaling engineering organizations at fast-moving technology companies. His background spans systems architecture, team building, and hands-on product development. A pragmatic leader who values shipping quality software at speed, John founded Testomniac to solve the testing bottleneck he kept running into as AI tools transformed how his teams built software.
+          </p>
+        </div>
+
+        <div class="team-card reveal" style="transition-delay: 0.15s;">
+          <div class="team-avatar"><img src="assets/images/che profile pic.jpeg" alt="Che Bajandas, CPO of Testomniac" width="240" height="240" loading="lazy" /></div>
+          <div>
+            <div class="team-name">Che Bajandas</div>
+            <div class="team-role">Co-Founder · CPO</div>
+          </div>
+          <p class="team-bio">
+            Che brings over a decade of product and quality leadership across mobile applications, B2B SaaS, and Web3 platforms. Known for building quality culture from the ground up and bridging the gap between engineering rigor and user experience, Che brings a user-first perspective to every product decision at Testomniac. A collaborative leader who believes quality is a team sport, not a gate at the end of the pipeline.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2 class="cta-title">Want to work with us?</h2>
+        <p class="cta-sub">We're always interested in connecting with talented engineers and product thinkers.</p>
+        <div class="cta-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('contactModal').classList.add('open')" style="padding:16px 36px;font-size:1rem;">
+            Get in Touch
+          </button>
+          <a href="/" class="btn btn-secondary" style="padding:16px 32px;font-size:1rem;">
+            See the Product
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <img src="assets/images/logo-horizontal.PNG" alt="Testomniac" width="177" height="42" />
+        </a>
+        <p>AI driven test automation done the smart way. Built for teams that move fast and can't afford to break things.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/">Homepage</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/docs">Documentation</a></li>
+          <li><a href="#" onclick="document.getElementById('waitlistModal').classList.add('open');return false;">Join Waitlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="#" onclick="document.getElementById('contactModal').classList.add('open');return false;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Testomniac. All rights reserved.</p>
+      <p>testomniac.com</p>
+    </div>
+  </footer>
+
+  <!-- ── WAITLIST MODAL ── -->
+  <div class="modal-overlay" id="waitlistModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('waitlistModal').classList.remove('open')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2>Join the waitlist</h2>
+      <p>Be the first to know when Testomniac launches. We'll email you as soon as it's your turn.</p>
+      <form id="waitlistModalForm" onsubmit="handleWaitlistModalSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input class="form-input" type="email" id="waitlistModalEmail" placeholder="you@company.com" required autocomplete="email" />
+        </div>
+        <button type="submit" class="btn btn-primary" id="waitlistModalBtn" style="width:100%;justify-content:center;padding:14px;">
+          Join Waitlist
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+        <p id="waitlistModalNote" style="margin-top:12px;font-size:0.82rem;color:var(--text-muted);text-align:center;">No spam, ever. We'll only email you when it's your turn.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── CONTACT MODAL ── -->
+  <div class="modal-overlay" id="contactModal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2>Get in touch</h2>
+      <p>Have questions or want to book a demo? Drop us a message and we'll get back to you within one business day.</p>
+      <form onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Work Email</label>
+          <input class="form-input" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell us about your team and what you're trying to solve..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
+    });
+
+    document.getElementById('contactBtn').addEventListener('click', () => {
+      document.getElementById('contactModal').classList.add('open');
+    });
+    document.getElementById('contactBtnMobile').addEventListener('click', () => {
+      closeMenu();
+      document.getElementById('contactModal').classList.add('open');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+    const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXzJZ5gbW5r1H9szl65f6JHSD1RyoXXGji9F8ihd3mTV03wail9RsGm91kexh235OA/exec';
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('[type="submit"]');
+      const name = form.querySelector('input[type="text"]').value.trim();
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const message = form.querySelector('textarea').value.trim();
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch(CONTACT_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, timestamp: new Date().toISOString() }),
+      })
+        .then(() => {
+          btn.textContent = '✓ Message sent!';
+          btn.style.background = 'var(--bg-raised)';
+          btn.style.color = 'var(--teal)';
+          btn.style.border = '1px solid var(--teal-border)';
+          setTimeout(() => {
+            document.getElementById('contactModal').classList.remove('open');
+            btn.textContent = 'Send Message';
+            btn.disabled = false;
+            btn.style = '';
+            form.reset();
+          }, 2000);
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        });
+    }
+
+    const WAITLIST_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJtXv22IEhjFHSg4Wggp2NQJkKIGDdHIGhjP_LXQkWXkBOuHy2VPWItnwjmaatQWT1/exec';
+
+    function handleWaitlistModalSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('waitlistModalEmail').value.trim();
+      const btn = document.getElementById('waitlistModalBtn');
+      const note = document.getElementById('waitlistModalNote');
+      if (!email) return;
+      btn.disabled = true;
+      btn.innerHTML = 'Submitting…';
+      fetch(WAITLIST_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
+      })
+        .then(() => {
+          btn.innerHTML = "✓ You're on the list!";
+          btn.style.background = 'var(--bg-raised)';
+          btn.style.color = 'var(--teal)';
+          btn.style.border = '1px solid var(--teal-border)';
+          note.textContent = "We'll be in touch soon.";
+          note.style.color = 'var(--teal)';
+          document.getElementById('waitlistModalEmail').disabled = true;
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.innerHTML = 'Join Waitlist <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+          note.textContent = 'Something went wrong. Please try again.';
+          note.style.color = '#ff6b6b';
+        });
+    }
+  </script>
+  <script src="scripts/grain.js"></script>
+</body>
+</html>

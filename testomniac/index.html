@@ -1,0 +1,671 @@
+﻿<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Testomniac | AI Driven Test Automation</title>
+		<meta name="description" content="AI-driven test automation that builds and runs your front-end test suites automatically — no QA headcount required. Start with a free scan." />
+		<link rel="canonical" href="https://testomniac.com/" />
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Testomniac" />
+		<meta property="og:title" content="Testomniac | AI Driven Test Automation" />
+		<meta property="og:description" content="AI-driven test automation that builds and runs your front-end test suites automatically — no QA headcount required. Start with a free scan." />
+		<meta property="og:url" content="https://testomniac.com/" />
+		<meta property="og:image" content="https://testomniac.com/assets/images/og-default.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Testomniac | AI Driven Test Automation" />
+		<meta name="twitter:description" content="AI-driven test automation that builds and runs your front-end test suites automatically — no QA headcount required. Start with a free scan." />
+		<meta name="twitter:image" content="https://testomniac.com/assets/images/og-default.png" />
+		<meta name="theme-color" content="#00D5B8" />
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.PNG" />
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.PNG" />
+		<link rel="apple-touch-icon" sizes="256x256" href="assets/images/logo-mark.PNG" />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "Organization",
+						"@id": "https://testomniac.com/#organization",
+						"name": "Testomniac",
+						"url": "https://testomniac.com/",
+						"description": "AI-driven test automation platform that automatically generates and runs front-end test suites so engineering teams can focus on shipping."
+					},
+					{
+						"@type": "WebSite",
+						"@id": "https://testomniac.com/#website",
+						"url": "https://testomniac.com/",
+						"name": "Testomniac",
+						"publisher": { "@id": "https://testomniac.com/#organization" }
+					},
+					{
+						"@type": "SoftwareApplication",
+						"name": "Testomniac",
+						"applicationCategory": "DeveloperApplication",
+						"operatingSystem": "Web",
+						"url": "https://testomniac.com/",
+						"description": "AI-driven test automation platform that automatically generates and runs front-end test suites.",
+						"offers": [
+					{ "@type": "Offer", "name": "Starter", "description": "10 testing hours per month. Includes all core features." },
+						{ "@type": "Offer", "name": "Growth", "description": "30 testing hours per month at a discounted hourly rate. Includes all core features." },
+						{ "@type": "Offer", "name": "Scale", "description": "80 testing hours per month at the best self-serve hourly rate. Includes all core features." },
+						{ "@type": "Offer", "name": "Enterprise", "description": "Custom testing hours with custom pricing. Includes all core features plus SSO/SAML, audit logs, SLA guarantee, and dedicated support." }
+						]
+					}
+				]
+			}
+		</script>
+	</head>
+	<body>
+		<!-- ══════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+		<nav class="nav" id="nav">
+			<div class="nav-inner">
+				<a href="/" class="nav-logo">
+					<img src="assets/images/logo-horizontal.PNG" alt="Testomniac" width="177" height="42" />
+				</a>
+
+				<div class="nav-links">
+					<a href="/" class="nav-link active">Home</a>
+					<a href="/about" class="nav-link">About</a>
+					<a href="/faq" class="nav-link">FAQ</a>
+					<a href="/pricing" class="nav-link">Pricing</a>
+					<a href="/docs" class="nav-link">Documentation</a>
+				</div>
+
+				<div class="nav-actions">
+					<button class="btn btn-ghost" id="contactBtn">Contact Us</button>
+					<button class="btn btn-primary" onclick="document.getElementById('waitlistModal').classList.add('open')">
+						Join Waitlist
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</button>
+				</div>
+
+				<button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</nav>
+
+		<div class="nav-mobile-menu" id="navMobileMenu">
+			<a href="/" class="nav-link active">Home</a>
+			<a href="/about" class="nav-link">About</a>
+			<a href="/faq" class="nav-link">FAQ</a>
+			<a href="/pricing" class="nav-link">Pricing</a>
+			<a href="/docs" class="nav-link">Documentation</a>
+			<div class="nav-actions">
+				<button class="btn btn-ghost" id="contactBtnMobile">Contact Us</button>
+				<button class="btn btn-primary" onclick="document.getElementById('waitlistModal').classList.add('open')">
+					Join Waitlist
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</button>
+			</div>
+		</div>
+
+		<!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+		<section class="hero">
+			<div class="hero-content">
+				<h1 class="hero-tagline">
+					AI driven test<br />automation done<br />
+					<em style="font-style: normal; color: var(--teal)">the smart way.</em>
+				</h1>
+
+				<p class="hero-sub">Front-end testing that builds itself, runs without slowing your team down, and scales with your product on a cost you can actually predict.</p>
+
+				<div class="scanner-wrap">
+					<div class="scanner-label">Join the Waitlist</div>
+					<form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
+						<div class="waitlist-input-wrap">
+							<input class="waitlist-input" type="email" placeholder="you@company.com" required autocomplete="email" id="waitlistEmail" />
+							<button class="waitlist-btn" type="submit" id="waitlistBtn">
+								Join Waitlist
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</button>
+						</div>
+						<p class="waitlist-note" id="waitlistNote">No spam, ever. We'll only email you when it's your turn.</p>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- ══════════════════════════════════════
+       INTEGRATIONS BANNER
+  ══════════════════════════════════════ -->
+		<div class="integrations">
+			<div class="container">
+				<p class="integrations-label">Works with the tools your team already uses</p>
+				<div class="integrations-row reveal-stagger">
+					<div class="integration-chip">
+						<!-- Jira icon -->
+						<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M15.975 2C8.835 2 3 7.836 3 14.975v.05C3 22.164 8.836 28 15.975 28h.05C23.164 28 29 22.164 29 15.025v-.05C29 7.836 23.164 2 16.025 2h-.05zm4.437 18.624-4.406-4.431-4.406 4.43-.025.026-1.006-1.006 5.437-5.456 5.437 5.456-1.031 1.006v-.025z" fill="#2684FF" />
+						</svg>
+						Jira
+					</div>
+					<div class="integration-chip">
+						<!-- Linear icon -->
+						<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.22541 61.5228c-.2225-.9485.90748-1.5459 1.59638-.857L37.3464 97.1782c.6889.6889.0915 1.8189-.857 1.5964C20.0515 94.4522 5.54779 79.9485 1.22541 61.5228zM.00189135 46.8891c-.01764375 1.1518.89468565 2.0artificiele 2.04648865 2.0Artificial" fill="#5E6AD2" />
+							<path
+								d="M5.68096 31.4676L68.0056 93.7922c1.7349.4111 3.4994.7311 5.2879.9486L4.73269 26.1795c.21753 1.7885.53754 3.553.94827 5.288zM13.3398 19.4799L80.0397 86.1798c1.2148-.6893 2.3919-1.4336 3.5237-2.2316L15.5714 15.9563c-.7981 1.1318-1.5424 2.3088-2.2316 3.5236zM22.7767 11.2375L88.3006 76.7615c.7354-.9744 1.4167-1.9896 2.0415-3.0407L25.8174 9.19605c-1.0511.62483-2.0663 1.30609-3.0407 2.04145zM34.0272 6.0368L93.5623 65.5719c.3457-.9532.6529-1.9253.921-2.9126L36.9398 5.11565c-.9873.268-1.9594.57514-2.9126.92115zM46.8891 2.49459C46.8891 2.49459 46.8891 2.49459 46.8891 2.49459L97.1054 52.7109c.0017-.0017.0033-.0034.005-.0052-3.5779-19.8678-19.3681-35.5799-39.2777-39.0656L46.8891 2.49459zM61.5228 1.22541c-1.4719-.34167-2.9612-.60848-4.4642-.79867L99.5734 42.9412c-.1902-1.503-.4570-2.9923-.7987-4.4642L61.5228 1.22541z"
+								fill="#5E6AD2"
+							/>
+						</svg>
+						Linear
+					</div>
+					<div class="integration-chip">
+						<!-- GitHub icon -->
+						<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+						</svg>
+						GitHub
+					</div>
+					<div class="integration-chip">
+						<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+						</svg>
+						GitHub Issues
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ══════════════════════════════════════
+       FEATURES
+  ══════════════════════════════════════ -->
+		<section class="features section" style="padding-top: 0px">
+			<div class="features-grid">
+				<!-- Feature 1 -->
+				<div class="feature-row">
+					<div class="feature-text reveal">
+						<h2 class="feature-title">Spend less time playing QA analyst for your agent and more time building.</h2>
+						<p class="feature-body">AI coding agents have supercharged your software engineers, but those gains can be wasted churning on usability issues. Testomniac handles front-end testing for your team, allowing your engineers to focus on code quality and rapid iteration.</p>
+					</div>
+					<div class="feature-visual">
+						<div class="feature-card-vis reveal">
+							<div class="feature-card-vis-header">
+								<div class="dot dot-teal"></div>
+								<div class="dot dot-blue"></div>
+								<div class="dot dot-dim"></div>
+								<span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-left: 4px">test_run_042.log</span>
+							</div>
+							<div class="check-list">
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Homepage navigation flows
+								</div>
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Checkout form validation
+								</div>
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Mobile responsive layouts
+								</div>
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Auth & session handling
+								</div>
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Error state edge cases
+								</div>
+							</div>
+							<div class="progress-bar"><div class="progress-fill"></div></div>
+							<div style="margin-top: 10px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--teal)">All tests passing · 3.2s</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Feature 2 -->
+				<div class="feature-row">
+					<div class="feature-text reveal">
+					<h2 class="feature-title">AI where it matters. Zero overhead where it doesn't.</h2>
+					<p class="feature-body">Testomniac applies AI where it genuinely adds value: building your test strategy and keeping tests current. Once tests are written, they run as fast, deterministic scripts with no AI overhead. Execution stays reliable, near-instant, and your costs don't spike as your test suite grows.</p>
+					</div>
+					<div class="feature-visual">
+						<div class="feature-card-vis reveal">
+							<div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-bottom: 16px; letter-spacing: 0.06em">AI USAGE BREAKDOWN</div>
+							<div class="token-vis">
+								<div class="token-block used"></div>
+								<div class="token-block used"></div>
+								<div class="token-block active"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+								<div class="token-block used"></div>
+								<div class="token-block active"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+								<div class="token-block"></div>
+							</div>
+							<div style="margin-top: 20px; font-family: var(--font-mono); font-size: 0.8rem">
+								<span style="color: var(--teal)">2 AI runs</span>
+								<span style="color: var(--text-dim)"> / 847 total executions</span>
+							</div>
+							<div style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted)">99.7% of runs execute without AI overhead</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Feature 3 -->
+				<div class="feature-row">
+					<div class="feature-text reveal">
+						<h2 class="feature-title">AI develops your testing strategy without reinventing the wheel each run.</h2>
+						<p class="feature-body">Testomniac builds a knowledge base of your product workflows and maintains a test library, meaning it doesn't waste time and resources relearning your product and coverage with each iteration.</p>
+					</div>
+					<div class="feature-visual">
+						<div class="feature-card-vis reveal">
+							<div class="feature-card-vis-header">
+								<div class="dot dot-teal"></div>
+								<span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-left: 4px">knowledge_base.json</span>
+							</div>
+							<div class="feature-card-line full"></div>
+							<div class="feature-card-line w80 teal"></div>
+							<div class="feature-card-line w60"></div>
+							<div class="feature-card-line full"></div>
+							<div class="feature-card-line w80"></div>
+							<div class="feature-card-line w60 teal"></div>
+							<div style="margin-top: 20px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted)">
+								<span style="color: var(--blue)">127 workflows</span> · <span style="color: var(--teal)">394 test cases</span> ·
+								<span style="color: var(--text-dim)">last updated 2m ago</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Feature 4 -->
+				<div class="feature-row">
+					<div class="feature-text reveal">
+						<h2 class="feature-title">AI powered testing that doesn't lean on you.</h2>
+						<p class="feature-body">No need to map out test cases or define test steps. Testomniac builds out your automation testing strategy from the ground up, following industry best practices and tried-and-true methodologies.</p>
+					</div>
+					<div class="feature-visual">
+						<div class="feature-card-vis reveal">
+							<div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--teal); margin-bottom: 20px; letter-spacing: 0.06em">ZERO CONFIGURATION REQUIRED</div>
+							<div class="check-list">
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Auto-discovers test flows
+								</div>
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Builds test strategy automatically
+								</div>
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Follows industry best practices
+								</div>
+								<div class="check-item">
+									<div class="check-icon">✓</div>
+									Self-healing test maintenance
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ══════════════════════════════════════
+       FAQ PREVIEW
+  ══════════════════════════════════════ -->
+		<section class="faq-preview section">
+			<div class="container">
+				<div class="faq-header reveal">
+					<div class="section-label">FAQ</div>
+					<h2 class="section-title">Common questions, answered.</h2>
+					<p class="section-body">Understand what Testomniac does, how it works, and if it's right for your team.</p>
+				</div>
+
+				<div class="faq-list" id="homeFaqList">
+					<div class="faq-item">
+						<div class="faq-question" onclick="toggleFaq(this)">
+							What is the benefit of quality assurance focused testing?
+							<span class="faq-toggle">+</span>
+						</div>
+						<div class="faq-answer">
+							<div class="faq-answer-inner">QA-focused testing is specifically designed to mirror how a real user interacts with software, prioritizing the end-user experience over the underlying code logic. Unlike traditional unit or integration tests that verify internal code behaviors, QA-focused tests identify usability issues, broken user flows, and UI regressions that directly affect your users. This makes it an essential layer of your testing strategy, especially as AI-generated code becomes more prevalent and the surface area for unexpected behaviors expands.</div>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<div class="faq-question" onclick="toggleFaq(this)">
+							Who can benefit the most from using Testomniac?
+							<span class="faq-toggle">+</span>
+						</div>
+						<div class="faq-answer">
+							<div class="faq-answer-inner">Testomniac is ideal for software engineering teams that are using AI coding agents (like Cursor, Copilot, or Claude) to accelerate development and need a reliable way to catch regressions without dedicated QA headcount. It's especially valuable for early-stage startups, fast-moving product teams, and any engineering organization where the cost of usability regressions is high but dedicated QA resources are limited.</div>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<div class="faq-question" onclick="toggleFaq(this)">
+							How does Testomniac know what to test?
+							<span class="faq-toggle">+</span>
+						</div>
+						<div class="faq-answer">
+							<div class="faq-answer-inner">On the initial scan, Testomniac uses AI to explore your application, map out its structure, and identify key user workflows. It then builds a test library around those workflows. In subsequent runs, it leverages that stored knowledge base rather than re-exploring from scratch, saving time and execution overhead while maintaining deep product context.</div>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<div class="faq-question" onclick="toggleFaq(this)">
+						How does Testomniac keep testing fast and cost-efficient?
+						<span class="faq-toggle">+</span>
+					</div>
+					<div class="faq-answer">
+						<div class="faq-answer-inner">Testomniac uses a two-phase approach. In the first phase, AI explores your application and writes test scripts. In the second phase, those scripts run as traditional automated tests with no AI involvement. Daily or CI/CD-triggered regression runs complete quickly and without AI overhead. AI only comes back into the picture when new features appear or tests need updating after a significant product change.</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="faq-cta">
+					<a href="/faq">View all FAQ questions →</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ══════════════════════════════════════
+       CTA
+  ══════════════════════════════════════ -->
+		<section class="cta-section">
+			<div class="container">
+				<div class="cta-content reveal">
+					<h2 class="cta-title">Ready to stop worrying<br />about front-end testing?</h2>
+					<p class="cta-sub">Let Testomniac handle the QA so your team can focus on what they do best, building great software.</p>
+					<div class="cta-actions">
+					<button class="btn btn-primary" onclick="document.getElementById('waitlistModal').classList.add('open')" style="padding:16px 36px;font-size:1rem;">
+						Get Started
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</button>
+						<button class="btn btn-secondary" onclick="document.getElementById('contactModal').classList.add('open')" style="padding:16px 32px;font-size:1rem;">
+							Talk to the Team
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+		<footer>
+			<div class="footer-inner">
+				<div class="footer-brand">
+					<a href="/" class="nav-logo" style="margin-bottom: 0">
+						<img src="assets/images/logo-horizontal.PNG" alt="Testomniac" width="177" height="42" />
+					</a>
+					<p>AI driven test automation done the smart way. Built for teams that move fast and can't afford to break things.</p>
+				</div>
+				<div class="footer-col">
+					<h4>Product</h4>
+					<ul>
+						<li><a href="/">Homepage</a></li>
+						<li><a href="/pricing">Pricing</a></li>
+						<li><a href="/docs">Documentation</a></li>
+						<li><a href="#" onclick="document.getElementById('waitlistModal').classList.add('open');return false;">Join Waitlist</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="/about">About Us</a></li>
+						<li><a href="/faq">FAQ</a></li>
+						<li>
+							<a
+								href="#"
+								onclick="
+									document.getElementById('contactModal').classList.add('open');
+									return false;
+								"
+								>Contact</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>© 2026 Testomniac. All rights reserved.</p>
+				<p>testomniac.com</p>
+			</div>
+		</footer>
+
+		<!-- ══════════════════════════════════════
+       WAITLIST MODAL
+  ══════════════════════════════════════ -->
+		<div class="modal-overlay" id="waitlistModal" onclick="if(event.target===this)this.classList.remove('open')">
+			<div class="modal">
+				<button class="modal-close" onclick="document.getElementById('waitlistModal').classList.remove('open')">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+				</button>
+				<h2>Join the waitlist</h2>
+				<p>Be the first to know when Testomniac launches. We'll email you as soon as it's your turn.</p>
+				<form id="waitlistModalForm" onsubmit="handleWaitlistModalSubmit(event)">
+					<div class="form-group">
+						<label class="form-label">Work Email</label>
+						<input class="form-input" type="email" id="waitlistModalEmail" placeholder="you@company.com" required autocomplete="email" />
+					</div>
+					<button type="submit" class="btn btn-primary" id="waitlistModalBtn" style="width:100%;justify-content:center;padding:14px;">
+						Join Waitlist
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</button>
+					<p id="waitlistModalNote" style="margin-top:12px;font-size:0.82rem;color:var(--text-muted);text-align:center;">No spam, ever. We'll only email you when it's your turn.</p>
+				</form>
+			</div>
+		</div>
+
+		<!-- ══════════════════════════════════════
+       CONTACT MODAL
+  ══════════════════════════════════════ -->
+		<div class="modal-overlay" id="contactModal" onclick="if (event.target === this) this.classList.remove('open');">
+			<div class="modal">
+				<button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+				</button>
+				<h2>Get in touch</h2>
+				<p>Have questions or want to book a demo? Drop us a message and we'll get back to you within one business day.</p>
+				<form onsubmit="handleContactSubmit(event)">
+					<div class="form-group">
+						<label class="form-label">Name</label>
+						<input class="form-input" type="text" placeholder="Your name" required />
+					</div>
+					<div class="form-group">
+						<label class="form-label">Work Email</label>
+						<input class="form-input" type="email" placeholder="you@company.com" required />
+					</div>
+					<div class="form-group">
+						<label class="form-label">Message</label>
+						<textarea class="form-textarea" placeholder="Tell us about your team and what you're trying to solve..."></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 14px">Send Message</button>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			// ── Nav scroll effect
+			const nav = document.getElementById('nav');
+			window.addEventListener('scroll', () => {
+				nav.classList.toggle('scrolled', window.scrollY > 30);
+			});
+
+			// ── Hamburger menu
+			const hamburger = document.getElementById('navHamburger');
+			const mobileMenu = document.getElementById('navMobileMenu');
+			function closeMenu() {
+				mobileMenu.classList.remove('open');
+				hamburger.classList.remove('open');
+				hamburger.setAttribute('aria-expanded', 'false');
+				document.body.style.overflow = '';
+			}
+			hamburger.addEventListener('click', () => {
+				const isOpen = mobileMenu.classList.toggle('open');
+				hamburger.classList.toggle('open', isOpen);
+				hamburger.setAttribute('aria-expanded', isOpen);
+				document.body.style.overflow = isOpen ? 'hidden' : '';
+			});
+			document.addEventListener('click', (e) => {
+				if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
+			});
+
+			// ── FAQ accordion
+			function toggleFaq(el) {
+				const item = el.closest('.faq-item');
+				const isOpen = item.classList.contains('open');
+				document.querySelectorAll('.faq-item.open').forEach((i) => i.classList.remove('open'));
+				if (!isOpen) item.classList.add('open');
+			}
+
+			// ── Scroll reveal
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+						}
+					});
+				},
+				{ threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+			);
+
+			document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => observer.observe(el));
+
+			// ── Contact nav button
+			document.getElementById('contactBtn').addEventListener('click', () => {
+				document.getElementById('contactModal').classList.add('open');
+			});
+			document.getElementById('contactBtnMobile').addEventListener('click', () => {
+				closeMenu();
+				document.getElementById('contactModal').classList.add('open');
+			});
+
+			// ── Contact form submit
+			const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXzJZ5gbW5r1H9szl65f6JHSD1RyoXXGji9F8ihd3mTV03wail9RsGm91kexh235OA/exec';
+
+			function handleContactSubmit(e) {
+				e.preventDefault();
+				const form = e.target;
+				const btn = form.querySelector('[type="submit"]');
+				const name = form.querySelector('input[type="text"]').value.trim();
+				const email = form.querySelector('input[type="email"]').value.trim();
+				const message = form.querySelector('textarea').value.trim();
+
+				btn.disabled = true;
+				btn.textContent = 'Sending…';
+
+				fetch(CONTACT_SCRIPT_URL, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ name, email, message, timestamp: new Date().toISOString() }),
+				})
+					.then(() => {
+						btn.textContent = '✓ Message sent!';
+						btn.style.background = 'var(--bg-raised)';
+						btn.style.color = 'var(--teal)';
+						btn.style.border = '1px solid var(--teal-border)';
+						setTimeout(() => {
+							document.getElementById('contactModal').classList.remove('open');
+							btn.textContent = 'Send Message';
+							btn.disabled = false;
+							btn.style = '';
+							form.reset();
+						}, 2000);
+					})
+					.catch(() => {
+						btn.disabled = false;
+						btn.textContent = 'Send Message';
+					});
+			}
+
+			// ── Waitlist form → Google Sheets
+			const WAITLIST_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJtXv22IEhjFHSg4Wggp2NQJkKIGDdHIGhjP_LXQkWXkBOuHy2VPWItnwjmaatQWT1/exec';
+
+			// ── Waitlist modal
+			function handleWaitlistModalSubmit(e) {
+				e.preventDefault();
+				const email = document.getElementById('waitlistModalEmail').value.trim();
+				const btn = document.getElementById('waitlistModalBtn');
+				const note = document.getElementById('waitlistModalNote');
+				if (!email) return;
+				btn.disabled = true;
+				btn.innerHTML = 'Submitting…';
+				fetch(WAITLIST_SCRIPT_URL, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
+				})
+					.then(() => {
+						btn.innerHTML = "✓ You're on the list!";
+						btn.style.background = 'var(--bg-raised)';
+						btn.style.color = 'var(--teal)';
+						btn.style.border = '1px solid var(--teal-border)';
+						note.textContent = "We'll be in touch soon.";
+						note.style.color = 'var(--teal)';
+						document.getElementById('waitlistModalEmail').disabled = true;
+					})
+					.catch(() => {
+						btn.disabled = false;
+						btn.innerHTML = 'Join Waitlist <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+						note.textContent = 'Something went wrong. Please try again.';
+						note.style.color = '#ff6b6b';
+					});
+			}
+
+			function handleWaitlistSubmit(e) {
+				e.preventDefault();
+				const email = document.getElementById('waitlistEmail').value.trim();
+				const btn = document.getElementById('waitlistBtn');
+				const note = document.getElementById('waitlistNote');
+
+				if (!email) return;
+
+				btn.disabled = true;
+				btn.innerHTML = 'Submitting…';
+
+				fetch(WAITLIST_SCRIPT_URL, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email: email, timestamp: new Date().toISOString() }),
+				})
+					.then(() => {
+						btn.innerHTML = "✓ You're on the list!";
+						btn.style.background = 'var(--bg-raised)';
+						btn.style.color = 'var(--teal)';
+						btn.style.border = '1px solid var(--teal-border)';
+						note.textContent = "We'll be in touch soon.";
+						note.style.color = 'var(--teal)';
+						document.getElementById('waitlistEmail').disabled = true;
+					})
+					.catch(() => {
+						btn.disabled = false;
+						btn.innerHTML = 'Join Waitlist <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+						note.textContent = 'Something went wrong. Please try again.';
+						note.style.color = '#ff6b6b';
+					});
+			}
+		</script>
+		<script src="scripts/grain.js"></script>
+	</body>
+</html>
